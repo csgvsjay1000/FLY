@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context" 
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd 
+       http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<!-- 采用注释的方式配置bean -->
+	<context:annotation-config />
+	<context:component-scan base-package="ivg.cn.print" /> 
+	
+	<!-- <dubbo:annotation package="ivg.cn.print"/> -->
+
+    <!-- provider's application name, used for tracing dependency relationship -->
+    <dubbo:application name="print-service-consumer"/>
+    
+    <dubbo:consumer client="netty4"></dubbo:consumer>
+
+    <!-- use multicast registry center to export service -->
+    <dubbo:registry address="multicast://224.5.6.7:1234"/>
+    <dubbo:protocol name="dubbo"/>
+
+
+    <dubbo:reference id="printDao" interface="ivg.cn.print.dao.PrintDao"></dubbo:reference>
+
+</beans>
