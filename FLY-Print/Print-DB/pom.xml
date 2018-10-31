@@ -135,6 +135,11 @@
 		<artifactId>dbsplit</artifactId>
 		<version>1.0.0</version>
 	</dependency>
+	<dependency>
+        <groupId>ivg.cn</groupId>
+        <artifactId>vesta-id</artifactId>
+        <version>${parent.version}</version>
+    </dependency>
 	
   </dependencies>
 </project>

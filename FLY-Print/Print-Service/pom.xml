@@ -42,5 +42,16 @@
         <artifactId>Print-API</artifactId>
         <version>${parent.version}</version>
     </dependency>
+  	<dependency>
+        <groupId>ivg.cn</groupId>
+        <artifactId>vesta-id</artifactId>
+        <version>${parent.version}</version>
+    </dependency>
+  	<dependency>
+        <groupId>ivg.cn</groupId>
+        <artifactId>kclient</artifactId>
+        <version>${parent.version}</version>
+    </dependency>
+    
   </dependencies>
 </project>
