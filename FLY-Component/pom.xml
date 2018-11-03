@@ -26,5 +26,6 @@
   	<module>dbsplit</module>
     <module>vesta-id</module>
     <module>kclient</module>
+    <module>ivgschedule</module>
   </modules>
 </project>
