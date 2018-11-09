@@ -25,5 +25,10 @@
 	<import resource="classpath:spring/boss-db-provider.xml" />
 	
 	<bean id="idService" class="ivg.cn.vesta.impl.IdServiceImpl" ></bean>
+	<bean id="disLock" class="ivg.cn.tools.dislock.ZkDisLock" init-method="init">
+		<property name="zkHost" value="39.108.11.154:2181"></property>
+		<property name="lockName" value="printLock"></property>
+	</bean>
+	
 	
 </beans>

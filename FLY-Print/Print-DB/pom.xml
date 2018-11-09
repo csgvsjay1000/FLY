@@ -140,6 +140,11 @@
         <artifactId>vesta-id</artifactId>
         <version>${parent.version}</version>
     </dependency>
+	<dependency>
+        <groupId>ivg.cn</groupId>
+        <artifactId>ivg-tools</artifactId>
+        <version>${parent.version}</version>
+    </dependency>
 	
   </dependencies>
 </project>

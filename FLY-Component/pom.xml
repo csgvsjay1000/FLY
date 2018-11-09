@@ -27,5 +27,7 @@
     <module>vesta-id</module>
     <module>kclient</module>
     <module>ivgschedule</module>
+    <module>ivg-monitor</module>
+    <module>ivg-tools</module>
   </modules>
 </project>
