@@ -24,10 +24,20 @@
 	<import resource="classpath:spring/spring-db.xml" />
 	<import resource="classpath:spring/boss-db-provider.xml" />
 	
-	<bean id="idService" class="ivg.cn.vesta.impl.IdServiceImpl" ></bean>
+	<bean id="idService" class="ivg.cn.vesta.impl.IdServiceImpl" >
+		<property name="machineId" value="49"></property>
+	</bean>
 	<bean id="disLock" class="ivg.cn.tools.dislock.ZkDisLock" init-method="init">
-		<property name="zkHost" value="39.108.11.154:2181"></property>
+		<property name="zkHost" value="192.168.5.131:16481"></property>
 		<property name="lockName" value="printLock"></property>
+	</bean>
+	<bean id="redic" class="ivg.cn.redic.Redic" init-method="init">
+		
+		<property name="nodeConnStrs">
+			<list>
+				<value>localhost:6379</value>
+			</list>
+		</property>
 	</bean>
 	
 	

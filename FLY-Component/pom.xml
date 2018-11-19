@@ -29,5 +29,6 @@
     <module>ivgschedule</module>
     <module>ivg-monitor</module>
     <module>ivg-tools</module>
+    <module>redic</module>
   </modules>
 </project>

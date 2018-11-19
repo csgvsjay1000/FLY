@@ -1,0 +1,607 @@
+2018-11-19 15:08:53.723 [main] INFO  com.alibaba.dubbo.common.logger.LoggerFactory - using logger: com.alibaba.dubbo.common.logger.slf4j.Slf4jLoggerAdapter
+2018-11-19 15:08:53.749 [main] INFO  com.alibaba.dubbo.container.Main -  [DUBBO] Use container type([spring]) to run dubbo serivce., dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:08:53.829 [main] INFO  com.alibaba.dubbo.container.Main -  [DUBBO] Dubbo SpringContainer started!, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.039 [main] INFO  com.alibaba.dubbo.common.logger.LoggerFactory - using logger: com.alibaba.dubbo.common.logger.slf4j.Slf4jLoggerAdapter
+2018-11-19 15:11:19.062 [main] INFO  com.alibaba.dubbo.container.Main -  [DUBBO] Use container type([spring]) to run dubbo serivce., dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.397 [main] INFO  c.a.d.c.s.beans.factory.annotation.ServiceAnnotationBeanPostProcessor -  [DUBBO] BeanNameGenerator bean can't be found in BeanFactory with name [org.springframework.context.annotation.internalConfigurationBeanNameGenerator], dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.397 [main] INFO  c.a.d.c.s.beans.factory.annotation.ServiceAnnotationBeanPostProcessor -  [DUBBO] BeanNameGenerator will be a instance of org.springframework.context.annotation.AnnotationBeanNameGenerator , it maybe a potential problem on bean name generation., dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.408 [main] WARN  c.a.d.c.s.beans.factory.annotation.ServiceAnnotationBeanPostProcessor -  [DUBBO] The BeanDefinition[Root bean: class [com.alibaba.dubbo.config.spring.ServiceBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] of ServiceBean has been registered with name : ServiceBean:memberDaoImpl:ivg.cn.member.dao.MemberDao, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.409 [main] INFO  c.a.d.c.s.beans.factory.annotation.ServiceAnnotationBeanPostProcessor -  [DUBBO] 1 annotated Dubbo's @Service Components { [Bean definition with name 'memberDaoImpl': Generic bean: class [ivg.cn.member.db.impl.MemberDaoImpl]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [E:\java_work\framework\V4\FLY-Member\Member-DB\target\classes\ivg\cn\member\db\impl\MemberDaoImpl.class]] } were scanned under package[ivg.cn.member], dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.587 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2018-11-19 15:11:19.597 [main] INFO  dbsplit - ------- initialize split tables --------
+2018-11-19 15:11:19.597 [main] INFO  dbsplit - ------- PRINT$PRINT 
+2018-11-19 15:11:19.597 [main] INFO  dbsplit - ------- PRINT$PRINT_DETAIL 
+2018-11-19 15:11:19.597 [main] INFO  dbsplit - ------- PRINT$PRINT_DETAIL_EPC 
+2018-11-19 15:11:19.597 [main] INFO  dbsplit - ----------------------------------------
+2018-11-19 15:11:19.615 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2018-11-19 15:11:19.680 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.rpc;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Protocol$Adaptive implements com.alibaba.dubbo.rpc.Protocol {
+public void destroy() {throw new UnsupportedOperationException("method public abstract void com.alibaba.dubbo.rpc.Protocol.destroy() of interface com.alibaba.dubbo.rpc.Protocol is not adaptive method!");
+}
+public int getDefaultPort() {throw new UnsupportedOperationException("method public abstract int com.alibaba.dubbo.rpc.Protocol.getDefaultPort() of interface com.alibaba.dubbo.rpc.Protocol is not adaptive method!");
+}
+public com.alibaba.dubbo.rpc.Exporter export(com.alibaba.dubbo.rpc.Invoker arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.Protocol) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.rpc.Protocol extension = (com.alibaba.dubbo.rpc.Protocol)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.Protocol.class).getExtension(extName);
+return extension.export(arg0);
+}
+public com.alibaba.dubbo.rpc.Invoker refer(java.lang.Class arg0, com.alibaba.dubbo.common.URL arg1) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg1 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg1;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.Protocol) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.rpc.Protocol extension = (com.alibaba.dubbo.rpc.Protocol)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.Protocol.class).getExtension(extName);
+return extension.refer(arg0, arg1);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.685 [main] WARN  com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] No spring extension(bean) named:defaultCompiler, try to find an extension(bean) of type java.lang.String, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.685 [main] WARN  com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] No spring extension(bean) named:defaultCompiler, type:java.lang.String found, stop get bean., dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.769 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.rpc;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ProxyFactory$Adaptive implements com.alibaba.dubbo.rpc.ProxyFactory {
+public java.lang.Object getProxy(com.alibaba.dubbo.rpc.Invoker arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.ProxyFactory) name from url(" + url.toString() + ") use keys([proxy])");
+com.alibaba.dubbo.rpc.ProxyFactory extension = (com.alibaba.dubbo.rpc.ProxyFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getProxy(arg0);
+}
+public java.lang.Object getProxy(com.alibaba.dubbo.rpc.Invoker arg0, boolean arg1) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.ProxyFactory) name from url(" + url.toString() + ") use keys([proxy])");
+com.alibaba.dubbo.rpc.ProxyFactory extension = (com.alibaba.dubbo.rpc.ProxyFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getProxy(arg0, arg1);
+}
+public com.alibaba.dubbo.rpc.Invoker getInvoker(java.lang.Object arg0, java.lang.Class arg1, com.alibaba.dubbo.common.URL arg2) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg2 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg2;
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.ProxyFactory) name from url(" + url.toString() + ") use keys([proxy])");
+com.alibaba.dubbo.rpc.ProxyFactory extension = (com.alibaba.dubbo.rpc.ProxyFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getInvoker(arg0, arg1, arg2);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.812 [main] INFO  com.alibaba.dubbo.config.AbstractConfig -  [DUBBO] The service ready on spring started. service: ivg.cn.member.dao.MemberDao, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.821 [main] WARN  com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] No spring extension(bean) named:level, try to find an extension(bean) of type com.alibaba.dubbo.common.logger.Level, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.826 [main] DEBUG com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] Error when get spring extension(bean) for type:com.alibaba.dubbo.common.logger.Level, dubbo version: 2.6.4, current host: 192.168.56.1
+org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.alibaba.dubbo.common.logger.Level' available
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:353) ~[spring-beans-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:340) ~[spring-beans-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1092) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory.getExtension(SpringExtensionFactory.java:67) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.factory.AdaptiveExtensionFactory.getExtension(AdaptiveExtensionFactory.java:47) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.injectExtension(ExtensionLoader.java:521) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.createExtension(ExtensionLoader.java:497) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.getExtension(ExtensionLoader.java:309) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.logger.LoggerFactory.setLoggerAdapter(LoggerFactory.java:72) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ApplicationConfig.setLogger(ApplicationConfig.java:202) [dubbo-2.6.4.jar:2.6.4]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_101]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_101]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_101]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_101]
+	at com.alibaba.dubbo.config.AbstractConfig.appendProperties(AbstractConfig.java:150) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.AbstractInterfaceConfig.checkApplication(AbstractInterfaceConfig.java:148) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:309) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.export(ServiceConfig.java:216) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:123) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:49) [dubbo-2.6.4.jar:2.6.4]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:393) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:347) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:883) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at com.alibaba.dubbo.container.spring.SpringContainer.start(SpringContainer.java:50) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.container.Main.main(Main.java:86) [dubbo-2.6.4.jar:2.6.4]
+	at ivg.cn.member.db.MemberDBStartup.main(MemberDBStartup.java:13) [classes/:na]
+2018-11-19 15:11:19.826 [main] WARN  com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] No spring extension(bean) named:level, type:com.alibaba.dubbo.common.logger.Level found, stop get bean., dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.826 [main] WARN  com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] No spring extension(bean) named:file, try to find an extension(bean) of type java.io.File, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.826 [main] DEBUG com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] Error when get spring extension(bean) for type:java.io.File, dubbo version: 2.6.4, current host: 192.168.56.1
+org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'java.io.File' available
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:353) ~[spring-beans-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:340) ~[spring-beans-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1092) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory.getExtension(SpringExtensionFactory.java:67) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.factory.AdaptiveExtensionFactory.getExtension(AdaptiveExtensionFactory.java:47) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.injectExtension(ExtensionLoader.java:521) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.createExtension(ExtensionLoader.java:497) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.getExtension(ExtensionLoader.java:309) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.logger.LoggerFactory.setLoggerAdapter(LoggerFactory.java:72) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ApplicationConfig.setLogger(ApplicationConfig.java:202) [dubbo-2.6.4.jar:2.6.4]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_101]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_101]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_101]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_101]
+	at com.alibaba.dubbo.config.AbstractConfig.appendProperties(AbstractConfig.java:150) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.AbstractInterfaceConfig.checkApplication(AbstractInterfaceConfig.java:148) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:309) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.export(ServiceConfig.java:216) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:123) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:49) [dubbo-2.6.4.jar:2.6.4]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:393) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:347) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:883) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at com.alibaba.dubbo.container.spring.SpringContainer.start(SpringContainer.java:50) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.container.Main.main(Main.java:86) [dubbo-2.6.4.jar:2.6.4]
+	at ivg.cn.member.db.MemberDBStartup.main(MemberDBStartup.java:13) [classes/:na]
+2018-11-19 15:11:19.826 [main] WARN  com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] No spring extension(bean) named:file, type:java.io.File found, stop get bean., dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.827 [main] INFO  com.alibaba.dubbo.common.logger.LoggerFactory - using logger: com.alibaba.dubbo.common.logger.slf4j.Slf4jLoggerAdapter
+2018-11-19 15:11:19.884 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.cache;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class CacheFactory$Adaptive implements com.alibaba.dubbo.cache.CacheFactory {
+public com.alibaba.dubbo.cache.Cache getCache(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.rpc.Invocation arg1) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+if (arg1 == null) throw new IllegalArgumentException("invocation == null");
+String methodName = arg1.getMethodName();
+String extName = url.getMethodParameter(methodName, "cache", "lru");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.cache.CacheFactory) name from url(" + url.toString() + ") use keys([cache])");
+com.alibaba.dubbo.cache.CacheFactory extension = (com.alibaba.dubbo.cache.CacheFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.cache.CacheFactory.class).getExtension(extName);
+return extension.getCache(arg0, arg1);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.891 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.monitor;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class MonitorFactory$Adaptive implements com.alibaba.dubbo.monitor.MonitorFactory {
+public com.alibaba.dubbo.monitor.Monitor getMonitor(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.monitor.MonitorFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.monitor.MonitorFactory extension = (com.alibaba.dubbo.monitor.MonitorFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.monitor.MonitorFactory.class).getExtension(extName);
+return extension.getMonitor(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.896 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.validation;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Validation$Adaptive implements com.alibaba.dubbo.validation.Validation {
+public com.alibaba.dubbo.validation.Validator getValidator(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("validation", "jvalidation");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.validation.Validation) name from url(" + url.toString() + ") use keys([validation])");
+com.alibaba.dubbo.validation.Validation extension = (com.alibaba.dubbo.validation.Validation)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.validation.Validation.class).getExtension(extName);
+return extension.getValidator(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.902 [main] INFO  com.alibaba.dubbo.config.AbstractConfig -  [DUBBO] Export dubbo service ivg.cn.member.dao.MemberDao to local registry, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.902 [main] INFO  com.alibaba.dubbo.config.AbstractConfig -  [DUBBO] Export dubbo service ivg.cn.member.dao.MemberDao to url dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&bind.ip=192.168.56.1&bind.port=20898&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=9924&side=provider&timestamp=1542611479835, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.903 [main] INFO  com.alibaba.dubbo.config.AbstractConfig -  [DUBBO] Register dubbo service ivg.cn.member.dao.MemberDao url dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&bind.ip=192.168.56.1&bind.port=20898&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=9924&side=provider&timestamp=1542611479835 to registry registry://224.5.6.7:1234/com.alibaba.dubbo.registry.RegistryService?application=print-db&dubbo=2.0.2&logger=slf4j&pid=9924&registry=multicast&timestamp=1542611479829, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.904 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.registry;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class RegistryFactory$Adaptive implements com.alibaba.dubbo.registry.RegistryFactory {
+public com.alibaba.dubbo.registry.Registry getRegistry(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.registry.RegistryFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.registry.RegistryFactory extension = (com.alibaba.dubbo.registry.RegistryFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.registry.RegistryFactory.class).getExtension(extName);
+return extension.getRegistry(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.913 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.rpc.cluster;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Cluster$Adaptive implements com.alibaba.dubbo.rpc.cluster.Cluster {
+public com.alibaba.dubbo.rpc.Invoker join(com.alibaba.dubbo.rpc.cluster.Directory arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.cluster.Directory argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.cluster.Directory argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("cluster", "failover");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.cluster.Cluster) name from url(" + url.toString() + ") use keys([cluster])");
+com.alibaba.dubbo.rpc.cluster.Cluster extension = (com.alibaba.dubbo.rpc.cluster.Cluster)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.cluster.Cluster.class).getExtension(extName);
+return extension.join(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:19.926 [main] DEBUG io.netty.util.internal.logging.InternalLoggerFactory - Using SLF4J as the default logging framework
+2018-11-19 15:11:19.927 [main] DEBUG io.netty.channel.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 16
+2018-11-19 15:11:19.943 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+2018-11-19 15:11:19.943 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+2018-11-19 15:11:19.952 [main] DEBUG io.netty.util.internal.PlatformDependent - Platform: Windows
+2018-11-19 15:11:19.953 [main] DEBUG io.netty.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2018-11-19 15:11:19.954 [main] DEBUG io.netty.util.internal.PlatformDependent0 - Java version: 8
+2018-11-19 15:11:19.954 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2018-11-19 15:11:19.955 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
+2018-11-19 15:11:19.955 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2018-11-19 15:11:19.955 [main] DEBUG io.netty.util.internal.PlatformDependent0 - direct buffer constructor: available
+2018-11-19 15:11:19.956 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2018-11-19 15:11:19.956 [main] DEBUG io.netty.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+2018-11-19 15:11:19.956 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, int): available
+2018-11-19 15:11:19.956 [main] DEBUG io.netty.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2018-11-19 15:11:19.956 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.tmpdir: C:\Users\Administrator\AppData\Local\Temp (java.io.tmpdir)
+2018-11-19 15:11:19.956 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2018-11-19 15:11:19.957 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: 1888485376 bytes
+2018-11-19 15:11:19.957 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2018-11-19 15:11:19.958 [main] DEBUG io.netty.util.internal.CleanerJava6 - java.nio.ByteBuffer.cleaner(): available
+2018-11-19 15:11:19.958 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2018-11-19 15:11:19.962 [main] DEBUG io.netty.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2018-11-19 15:11:20.285 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.processId: 9924 (auto-detected)
+2018-11-19 15:11:20.286 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv4Stack: false
+2018-11-19 15:11:20.286 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv6Addresses: false
+2018-11-19 15:11:20.325 [main] DEBUG io.netty.util.NetUtil - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2018-11-19 15:11:20.326 [main] DEBUG io.netty.util.NetUtil - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2018-11-19 15:11:20.368 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.machineId: 00:23:24:ff:fe:e8:15:17 (auto-detected)
+2018-11-19 15:11:20.371 [main] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2018-11-19 15:11:20.371 [main] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2018-11-19 15:11:20.375 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+2018-11-19 15:11:20.375 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+2018-11-19 15:11:20.389 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 16
+2018-11-19 15:11:20.389 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 16
+2018-11-19 15:11:20.389 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+2018-11-19 15:11:20.389 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 11
+2018-11-19 15:11:20.389 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 16777216
+2018-11-19 15:11:20.389 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.tinyCacheSize: 512
+2018-11-19 15:11:20.389 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+2018-11-19 15:11:20.389 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+2018-11-19 15:11:20.389 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2018-11-19 15:11:20.389 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+2018-11-19 15:11:20.389 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.useCacheForAllThreads: true
+2018-11-19 15:11:20.394 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: pooled
+2018-11-19 15:11:20.394 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 0
+2018-11-19 15:11:20.394 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2018-11-19 15:11:20.411 [main] INFO  com.alibaba.dubbo.qos.server.Server -  [DUBBO] qos-server bind localhost:22222, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:20.418 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.remoting;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Transporter$Adaptive implements com.alibaba.dubbo.remoting.Transporter {
+public com.alibaba.dubbo.remoting.Client connect(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.remoting.ChannelHandler arg1) throws com.alibaba.dubbo.remoting.RemotingException {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("client", url.getParameter("transporter", "netty"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Transporter) name from url(" + url.toString() + ") use keys([client, transporter])");
+com.alibaba.dubbo.remoting.Transporter extension = (com.alibaba.dubbo.remoting.Transporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Transporter.class).getExtension(extName);
+return extension.connect(arg0, arg1);
+}
+public com.alibaba.dubbo.remoting.Server bind(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.remoting.ChannelHandler arg1) throws com.alibaba.dubbo.remoting.RemotingException {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("server", url.getParameter("transporter", "netty"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Transporter) name from url(" + url.toString() + ") use keys([server, transporter])");
+com.alibaba.dubbo.remoting.Transporter extension = (com.alibaba.dubbo.remoting.Transporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Transporter.class).getExtension(extName);
+return extension.bind(arg0, arg1);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:20.426 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.remoting;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Dispatcher$Adaptive implements com.alibaba.dubbo.remoting.Dispatcher {
+public com.alibaba.dubbo.remoting.ChannelHandler dispatch(com.alibaba.dubbo.remoting.ChannelHandler arg0, com.alibaba.dubbo.common.URL arg1) {
+if (arg1 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg1;
+String extName = url.getParameter("dispatcher", url.getParameter("dispather", url.getParameter("channel.handler", "all")));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Dispatcher) name from url(" + url.toString() + ") use keys([dispatcher, dispather, channel.handler])");
+com.alibaba.dubbo.remoting.Dispatcher extension = (com.alibaba.dubbo.remoting.Dispatcher)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Dispatcher.class).getExtension(extName);
+return extension.dispatch(arg0, arg1);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:20.432 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.common.threadpool;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ThreadPool$Adaptive implements com.alibaba.dubbo.common.threadpool.ThreadPool {
+public java.util.concurrent.Executor getExecutor(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("threadpool", "fixed");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.common.threadpool.ThreadPool) name from url(" + url.toString() + ") use keys([threadpool])");
+com.alibaba.dubbo.common.threadpool.ThreadPool extension = (com.alibaba.dubbo.common.threadpool.ThreadPool)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.common.threadpool.ThreadPool.class).getExtension(extName);
+return extension.getExecutor(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:20.518 [main] INFO  com.alibaba.dubbo.remoting.transport.AbstractServer -  [DUBBO] Start NettyServer bind /0.0.0.0:20898, export /192.168.56.1:20898, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:20.525 [main] INFO  com.alibaba.dubbo.registry.multicast.MulticastRegistry -  [DUBBO] Register: dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=9924&side=provider&timestamp=1542611479835, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:20.526 [main] INFO  com.alibaba.dubbo.registry.multicast.MulticastRegistry -  [DUBBO] Send broadcast message: register dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=9924&side=provider&timestamp=1542611479835 to /224.5.6.7:1234, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:20.526 [DubboMulticastRegistryReceiver] INFO  com.alibaba.dubbo.registry.multicast.MulticastRegistry -  [DUBBO] Receive multicast message: register dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=9924&side=provider&timestamp=1542611479835 from /192.168.56.1:1234, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:20.526 [main] INFO  com.alibaba.dubbo.registry.multicast.MulticastRegistry -  [DUBBO] Subscribe: provider://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=9924&side=provider&timestamp=1542611479835, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:20.527 [main] INFO  com.alibaba.dubbo.registry.multicast.MulticastRegistry -  [DUBBO] Send broadcast message: subscribe provider://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=9924&side=provider&timestamp=1542611479835 to /224.5.6.7:1234, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:20.527 [DubboMulticastRegistryReceiver] INFO  com.alibaba.dubbo.registry.multicast.MulticastRegistry -  [DUBBO] Receive multicast message: subscribe provider://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=9924&side=provider&timestamp=1542611479835 from /192.168.56.1:1234, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:21.527 [main] WARN  com.alibaba.dubbo.registry.multicast.MulticastRegistry -  [DUBBO] Ignore empty notify urls for subscribe url provider://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=9924&side=provider&timestamp=1542611479835, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:11:21.537 [main] INFO  com.alibaba.dubbo.container.Main -  [DUBBO] Dubbo SpringContainer started!, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:01.412 [main] INFO  com.alibaba.dubbo.common.logger.LoggerFactory - using logger: com.alibaba.dubbo.common.logger.slf4j.Slf4jLoggerAdapter
+2018-11-19 15:13:01.436 [main] INFO  com.alibaba.dubbo.container.Main -  [DUBBO] Use container type([spring]) to run dubbo serivce., dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:01.777 [main] INFO  c.a.d.c.s.beans.factory.annotation.ServiceAnnotationBeanPostProcessor -  [DUBBO] BeanNameGenerator bean can't be found in BeanFactory with name [org.springframework.context.annotation.internalConfigurationBeanNameGenerator], dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:01.777 [main] INFO  c.a.d.c.s.beans.factory.annotation.ServiceAnnotationBeanPostProcessor -  [DUBBO] BeanNameGenerator will be a instance of org.springframework.context.annotation.AnnotationBeanNameGenerator , it maybe a potential problem on bean name generation., dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:01.789 [main] WARN  c.a.d.c.s.beans.factory.annotation.ServiceAnnotationBeanPostProcessor -  [DUBBO] The BeanDefinition[Root bean: class [com.alibaba.dubbo.config.spring.ServiceBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] of ServiceBean has been registered with name : ServiceBean:memberDaoImpl:ivg.cn.member.dao.MemberDao, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:01.790 [main] INFO  c.a.d.c.s.beans.factory.annotation.ServiceAnnotationBeanPostProcessor -  [DUBBO] 1 annotated Dubbo's @Service Components { [Bean definition with name 'memberDaoImpl': Generic bean: class [ivg.cn.member.db.impl.MemberDaoImpl]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [E:\java_work\framework\V4\FLY-Member\Member-DB\target\classes\ivg\cn\member\db\impl\MemberDaoImpl.class]] } were scanned under package[ivg.cn.member], dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:01.960 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2018-11-19 15:13:01.971 [main] INFO  dbsplit - ------- initialize split tables --------
+2018-11-19 15:13:01.971 [main] INFO  dbsplit - ------- PRINT$PRINT 
+2018-11-19 15:13:01.971 [main] INFO  dbsplit - ------- PRINT$PRINT_DETAIL 
+2018-11-19 15:13:01.971 [main] INFO  dbsplit - ------- PRINT$PRINT_DETAIL_EPC 
+2018-11-19 15:13:01.971 [main] INFO  dbsplit - ----------------------------------------
+2018-11-19 15:13:01.993 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2018-11-19 15:13:02.032 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.rpc;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Protocol$Adaptive implements com.alibaba.dubbo.rpc.Protocol {
+public void destroy() {throw new UnsupportedOperationException("method public abstract void com.alibaba.dubbo.rpc.Protocol.destroy() of interface com.alibaba.dubbo.rpc.Protocol is not adaptive method!");
+}
+public int getDefaultPort() {throw new UnsupportedOperationException("method public abstract int com.alibaba.dubbo.rpc.Protocol.getDefaultPort() of interface com.alibaba.dubbo.rpc.Protocol is not adaptive method!");
+}
+public com.alibaba.dubbo.rpc.Exporter export(com.alibaba.dubbo.rpc.Invoker arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.Protocol) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.rpc.Protocol extension = (com.alibaba.dubbo.rpc.Protocol)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.Protocol.class).getExtension(extName);
+return extension.export(arg0);
+}
+public com.alibaba.dubbo.rpc.Invoker refer(java.lang.Class arg0, com.alibaba.dubbo.common.URL arg1) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg1 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg1;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.Protocol) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.rpc.Protocol extension = (com.alibaba.dubbo.rpc.Protocol)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.Protocol.class).getExtension(extName);
+return extension.refer(arg0, arg1);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.035 [main] WARN  com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] No spring extension(bean) named:defaultCompiler, try to find an extension(bean) of type java.lang.String, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.035 [main] WARN  com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] No spring extension(bean) named:defaultCompiler, type:java.lang.String found, stop get bean., dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.111 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.rpc;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ProxyFactory$Adaptive implements com.alibaba.dubbo.rpc.ProxyFactory {
+public java.lang.Object getProxy(com.alibaba.dubbo.rpc.Invoker arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.ProxyFactory) name from url(" + url.toString() + ") use keys([proxy])");
+com.alibaba.dubbo.rpc.ProxyFactory extension = (com.alibaba.dubbo.rpc.ProxyFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getProxy(arg0);
+}
+public java.lang.Object getProxy(com.alibaba.dubbo.rpc.Invoker arg0, boolean arg1) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.ProxyFactory) name from url(" + url.toString() + ") use keys([proxy])");
+com.alibaba.dubbo.rpc.ProxyFactory extension = (com.alibaba.dubbo.rpc.ProxyFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getProxy(arg0, arg1);
+}
+public com.alibaba.dubbo.rpc.Invoker getInvoker(java.lang.Object arg0, java.lang.Class arg1, com.alibaba.dubbo.common.URL arg2) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg2 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg2;
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.ProxyFactory) name from url(" + url.toString() + ") use keys([proxy])");
+com.alibaba.dubbo.rpc.ProxyFactory extension = (com.alibaba.dubbo.rpc.ProxyFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getInvoker(arg0, arg1, arg2);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.151 [main] INFO  com.alibaba.dubbo.config.AbstractConfig -  [DUBBO] The service ready on spring started. service: ivg.cn.member.dao.MemberDao, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.154 [main] WARN  com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] No spring extension(bean) named:level, try to find an extension(bean) of type com.alibaba.dubbo.common.logger.Level, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.157 [main] DEBUG com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] Error when get spring extension(bean) for type:com.alibaba.dubbo.common.logger.Level, dubbo version: 2.6.4, current host: 192.168.56.1
+org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.alibaba.dubbo.common.logger.Level' available
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:353) ~[spring-beans-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:340) ~[spring-beans-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1092) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory.getExtension(SpringExtensionFactory.java:67) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.factory.AdaptiveExtensionFactory.getExtension(AdaptiveExtensionFactory.java:47) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.injectExtension(ExtensionLoader.java:521) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.createExtension(ExtensionLoader.java:497) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.getExtension(ExtensionLoader.java:309) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.logger.LoggerFactory.setLoggerAdapter(LoggerFactory.java:72) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ApplicationConfig.setLogger(ApplicationConfig.java:202) [dubbo-2.6.4.jar:2.6.4]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_101]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_101]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_101]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_101]
+	at com.alibaba.dubbo.config.AbstractConfig.appendProperties(AbstractConfig.java:150) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.AbstractInterfaceConfig.checkApplication(AbstractInterfaceConfig.java:148) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:309) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.export(ServiceConfig.java:216) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:123) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:49) [dubbo-2.6.4.jar:2.6.4]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:393) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:347) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:883) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at com.alibaba.dubbo.container.spring.SpringContainer.start(SpringContainer.java:50) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.container.Main.main(Main.java:86) [dubbo-2.6.4.jar:2.6.4]
+	at ivg.cn.member.db.MemberDBStartup.main(MemberDBStartup.java:13) [classes/:na]
+2018-11-19 15:13:02.157 [main] WARN  com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] No spring extension(bean) named:level, type:com.alibaba.dubbo.common.logger.Level found, stop get bean., dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.157 [main] WARN  com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] No spring extension(bean) named:file, try to find an extension(bean) of type java.io.File, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.158 [main] DEBUG com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] Error when get spring extension(bean) for type:java.io.File, dubbo version: 2.6.4, current host: 192.168.56.1
+org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'java.io.File' available
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:353) ~[spring-beans-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:340) ~[spring-beans-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1092) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory.getExtension(SpringExtensionFactory.java:67) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.factory.AdaptiveExtensionFactory.getExtension(AdaptiveExtensionFactory.java:47) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.injectExtension(ExtensionLoader.java:521) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.createExtension(ExtensionLoader.java:497) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.getExtension(ExtensionLoader.java:309) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.logger.LoggerFactory.setLoggerAdapter(LoggerFactory.java:72) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ApplicationConfig.setLogger(ApplicationConfig.java:202) [dubbo-2.6.4.jar:2.6.4]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_101]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_101]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_101]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_101]
+	at com.alibaba.dubbo.config.AbstractConfig.appendProperties(AbstractConfig.java:150) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.AbstractInterfaceConfig.checkApplication(AbstractInterfaceConfig.java:148) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:309) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.export(ServiceConfig.java:216) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:123) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:49) [dubbo-2.6.4.jar:2.6.4]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:393) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:347) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:883) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at com.alibaba.dubbo.container.spring.SpringContainer.start(SpringContainer.java:50) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.container.Main.main(Main.java:86) [dubbo-2.6.4.jar:2.6.4]
+	at ivg.cn.member.db.MemberDBStartup.main(MemberDBStartup.java:13) [classes/:na]
+2018-11-19 15:13:02.158 [main] WARN  com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] No spring extension(bean) named:file, type:java.io.File found, stop get bean., dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.158 [main] INFO  com.alibaba.dubbo.common.logger.LoggerFactory - using logger: com.alibaba.dubbo.common.logger.slf4j.Slf4jLoggerAdapter
+2018-11-19 15:13:02.216 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.cache;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class CacheFactory$Adaptive implements com.alibaba.dubbo.cache.CacheFactory {
+public com.alibaba.dubbo.cache.Cache getCache(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.rpc.Invocation arg1) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+if (arg1 == null) throw new IllegalArgumentException("invocation == null");
+String methodName = arg1.getMethodName();
+String extName = url.getMethodParameter(methodName, "cache", "lru");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.cache.CacheFactory) name from url(" + url.toString() + ") use keys([cache])");
+com.alibaba.dubbo.cache.CacheFactory extension = (com.alibaba.dubbo.cache.CacheFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.cache.CacheFactory.class).getExtension(extName);
+return extension.getCache(arg0, arg1);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.225 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.monitor;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class MonitorFactory$Adaptive implements com.alibaba.dubbo.monitor.MonitorFactory {
+public com.alibaba.dubbo.monitor.Monitor getMonitor(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.monitor.MonitorFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.monitor.MonitorFactory extension = (com.alibaba.dubbo.monitor.MonitorFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.monitor.MonitorFactory.class).getExtension(extName);
+return extension.getMonitor(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.232 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.validation;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Validation$Adaptive implements com.alibaba.dubbo.validation.Validation {
+public com.alibaba.dubbo.validation.Validator getValidator(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("validation", "jvalidation");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.validation.Validation) name from url(" + url.toString() + ") use keys([validation])");
+com.alibaba.dubbo.validation.Validation extension = (com.alibaba.dubbo.validation.Validation)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.validation.Validation.class).getExtension(extName);
+return extension.getValidator(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.242 [main] INFO  com.alibaba.dubbo.config.AbstractConfig -  [DUBBO] Export dubbo service ivg.cn.member.dao.MemberDao to local registry, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.242 [main] INFO  com.alibaba.dubbo.config.AbstractConfig -  [DUBBO] Export dubbo service ivg.cn.member.dao.MemberDao to url dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&bind.ip=192.168.56.1&bind.port=20898&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=10188&side=provider&timestamp=1542611582163, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.242 [main] INFO  com.alibaba.dubbo.config.AbstractConfig -  [DUBBO] Register dubbo service ivg.cn.member.dao.MemberDao url dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&bind.ip=192.168.56.1&bind.port=20898&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=10188&side=provider&timestamp=1542611582163 to registry registry://224.5.6.7:1234/com.alibaba.dubbo.registry.RegistryService?application=print-db&dubbo=2.0.2&logger=slf4j&pid=10188&registry=multicast&timestamp=1542611582160, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.247 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.rpc.cluster;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Cluster$Adaptive implements com.alibaba.dubbo.rpc.cluster.Cluster {
+public com.alibaba.dubbo.rpc.Invoker join(com.alibaba.dubbo.rpc.cluster.Directory arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.cluster.Directory argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.cluster.Directory argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("cluster", "failover");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.cluster.Cluster) name from url(" + url.toString() + ") use keys([cluster])");
+com.alibaba.dubbo.rpc.cluster.Cluster extension = (com.alibaba.dubbo.rpc.cluster.Cluster)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.cluster.Cluster.class).getExtension(extName);
+return extension.join(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.254 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.registry;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class RegistryFactory$Adaptive implements com.alibaba.dubbo.registry.RegistryFactory {
+public com.alibaba.dubbo.registry.Registry getRegistry(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.registry.RegistryFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.registry.RegistryFactory extension = (com.alibaba.dubbo.registry.RegistryFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.registry.RegistryFactory.class).getExtension(extName);
+return extension.getRegistry(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.263 [main] DEBUG io.netty.util.internal.logging.InternalLoggerFactory - Using SLF4J as the default logging framework
+2018-11-19 15:13:02.264 [main] DEBUG io.netty.channel.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 16
+2018-11-19 15:13:02.277 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+2018-11-19 15:13:02.277 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+2018-11-19 15:13:02.286 [main] DEBUG io.netty.util.internal.PlatformDependent - Platform: Windows
+2018-11-19 15:13:02.287 [main] DEBUG io.netty.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2018-11-19 15:13:02.287 [main] DEBUG io.netty.util.internal.PlatformDependent0 - Java version: 8
+2018-11-19 15:13:02.287 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2018-11-19 15:13:02.288 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
+2018-11-19 15:13:02.288 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2018-11-19 15:13:02.288 [main] DEBUG io.netty.util.internal.PlatformDependent0 - direct buffer constructor: available
+2018-11-19 15:13:02.289 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2018-11-19 15:13:02.289 [main] DEBUG io.netty.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+2018-11-19 15:13:02.289 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, int): available
+2018-11-19 15:13:02.289 [main] DEBUG io.netty.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2018-11-19 15:13:02.289 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.tmpdir: C:\Users\Administrator\AppData\Local\Temp (java.io.tmpdir)
+2018-11-19 15:13:02.289 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2018-11-19 15:13:02.290 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: 1888485376 bytes
+2018-11-19 15:13:02.290 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2018-11-19 15:13:02.290 [main] DEBUG io.netty.util.internal.CleanerJava6 - java.nio.ByteBuffer.cleaner(): available
+2018-11-19 15:13:02.290 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2018-11-19 15:13:02.350 [main] DEBUG io.netty.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2018-11-19 15:13:02.610 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.processId: 10188 (auto-detected)
+2018-11-19 15:13:02.611 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv4Stack: false
+2018-11-19 15:13:02.612 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv6Addresses: false
+2018-11-19 15:13:02.650 [main] DEBUG io.netty.util.NetUtil - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2018-11-19 15:13:02.651 [main] DEBUG io.netty.util.NetUtil - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2018-11-19 15:13:02.691 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.machineId: 00:23:24:ff:fe:e8:15:17 (auto-detected)
+2018-11-19 15:13:02.694 [main] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2018-11-19 15:13:02.694 [main] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2018-11-19 15:13:02.699 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+2018-11-19 15:13:02.699 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+2018-11-19 15:13:02.711 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 16
+2018-11-19 15:13:02.711 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 16
+2018-11-19 15:13:02.711 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+2018-11-19 15:13:02.711 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 11
+2018-11-19 15:13:02.711 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 16777216
+2018-11-19 15:13:02.711 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.tinyCacheSize: 512
+2018-11-19 15:13:02.711 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+2018-11-19 15:13:02.711 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+2018-11-19 15:13:02.711 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2018-11-19 15:13:02.711 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+2018-11-19 15:13:02.711 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.useCacheForAllThreads: true
+2018-11-19 15:13:02.716 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: pooled
+2018-11-19 15:13:02.716 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 0
+2018-11-19 15:13:02.716 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2018-11-19 15:13:02.734 [main] INFO  com.alibaba.dubbo.qos.server.Server -  [DUBBO] qos-server bind localhost:22222, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.742 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.remoting;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Transporter$Adaptive implements com.alibaba.dubbo.remoting.Transporter {
+public com.alibaba.dubbo.remoting.Client connect(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.remoting.ChannelHandler arg1) throws com.alibaba.dubbo.remoting.RemotingException {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("client", url.getParameter("transporter", "netty"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Transporter) name from url(" + url.toString() + ") use keys([client, transporter])");
+com.alibaba.dubbo.remoting.Transporter extension = (com.alibaba.dubbo.remoting.Transporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Transporter.class).getExtension(extName);
+return extension.connect(arg0, arg1);
+}
+public com.alibaba.dubbo.remoting.Server bind(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.remoting.ChannelHandler arg1) throws com.alibaba.dubbo.remoting.RemotingException {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("server", url.getParameter("transporter", "netty"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Transporter) name from url(" + url.toString() + ") use keys([server, transporter])");
+com.alibaba.dubbo.remoting.Transporter extension = (com.alibaba.dubbo.remoting.Transporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Transporter.class).getExtension(extName);
+return extension.bind(arg0, arg1);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.750 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.remoting;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Dispatcher$Adaptive implements com.alibaba.dubbo.remoting.Dispatcher {
+public com.alibaba.dubbo.remoting.ChannelHandler dispatch(com.alibaba.dubbo.remoting.ChannelHandler arg0, com.alibaba.dubbo.common.URL arg1) {
+if (arg1 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg1;
+String extName = url.getParameter("dispatcher", url.getParameter("dispather", url.getParameter("channel.handler", "all")));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Dispatcher) name from url(" + url.toString() + ") use keys([dispatcher, dispather, channel.handler])");
+com.alibaba.dubbo.remoting.Dispatcher extension = (com.alibaba.dubbo.remoting.Dispatcher)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Dispatcher.class).getExtension(extName);
+return extension.dispatch(arg0, arg1);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.756 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.common.threadpool;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ThreadPool$Adaptive implements com.alibaba.dubbo.common.threadpool.ThreadPool {
+public java.util.concurrent.Executor getExecutor(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("threadpool", "fixed");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.common.threadpool.ThreadPool) name from url(" + url.toString() + ") use keys([threadpool])");
+com.alibaba.dubbo.common.threadpool.ThreadPool extension = (com.alibaba.dubbo.common.threadpool.ThreadPool)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.common.threadpool.ThreadPool.class).getExtension(extName);
+return extension.getExecutor(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.842 [main] INFO  com.alibaba.dubbo.remoting.transport.AbstractServer -  [DUBBO] Start NettyServer bind /0.0.0.0:20898, export /192.168.56.1:20898, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.850 [main] INFO  com.alibaba.dubbo.registry.multicast.MulticastRegistry -  [DUBBO] Register: dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=10188&side=provider&timestamp=1542611582163, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.850 [main] INFO  com.alibaba.dubbo.registry.multicast.MulticastRegistry -  [DUBBO] Send broadcast message: register dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=10188&side=provider&timestamp=1542611582163 to /224.5.6.7:1234, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.850 [DubboMulticastRegistryReceiver] INFO  com.alibaba.dubbo.registry.multicast.MulticastRegistry -  [DUBBO] Receive multicast message: register dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=10188&side=provider&timestamp=1542611582163 from /192.168.56.1:1234, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.850 [main] INFO  com.alibaba.dubbo.registry.multicast.MulticastRegistry -  [DUBBO] Subscribe: provider://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=10188&side=provider&timestamp=1542611582163, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.851 [main] INFO  com.alibaba.dubbo.registry.multicast.MulticastRegistry -  [DUBBO] Send broadcast message: subscribe provider://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=10188&side=provider&timestamp=1542611582163 to /224.5.6.7:1234, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:02.851 [DubboMulticastRegistryReceiver] INFO  com.alibaba.dubbo.registry.multicast.MulticastRegistry -  [DUBBO] Receive multicast message: subscribe provider://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=10188&side=provider&timestamp=1542611582163 from /192.168.56.1:1234, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:03.851 [main] WARN  com.alibaba.dubbo.registry.multicast.MulticastRegistry -  [DUBBO] Ignore empty notify urls for subscribe url provider://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=10188&side=provider&timestamp=1542611582163, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 15:13:03.859 [main] INFO  com.alibaba.dubbo.container.Main -  [DUBBO] Dubbo SpringContainer started!, dubbo version: 2.6.4, current host: 192.168.56.1
