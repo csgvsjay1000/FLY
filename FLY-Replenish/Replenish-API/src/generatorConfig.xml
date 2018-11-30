@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+<classPathEntry
+		location="E:\mysql-connector-java-5.1.40.jar" />
+	<context id="generator-code">
+		<commentGenerator>           
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->             
+            <property name="suppressAllComments" value="true"/>      
+         </commentGenerator>  
+        
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/replenish_0" userId="root"
+			password="123456" />
+		<javaModelGenerator targetPackage="ivg.cn.replenish.entity"
+			targetProject="Replenish-API/src/main/java" />
+
+		<table tableName="replenish_bill_2018" domainObjectName="Replenish"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="replenish_bill_detail_2018" domainObjectName="ReplenishDetail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="replenish_epc_dec_2018" domainObjectName="ReplenishEpcDec"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="replenish_epc_inc_2018" domainObjectName="ReplenishEpcInc"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+	
+		
+	</context>
+</generatorConfiguration>

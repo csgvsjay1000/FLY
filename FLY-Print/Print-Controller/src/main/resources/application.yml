@@ -24,18 +24,18 @@ management:
       status:
         defaults: memory
         extras: load,threadpool
-
-dubbo:
-  scan:
-#    basePackages: ivg.cn.stock.dubbo.provider
-  application:
-    id: invengo-api
-    name: invengo-api
-  registry:
-    id: my-registry
-    address: multicast://224.5.6.7:1234
-  protocol:
-    id: dubbo
-    name: dubbo
-    port: 12346
-    status: server
+#
+#dubbo:
+#  scan:
+##    basePackages: ivg.cn.stock.dubbo.provider
+#  application:
+#    id: invengo-api
+#    name: invengo-api
+#  registry:
+#    id: my-registry
+#    address: multicast://224.5.6.7:1234
+#  protocol:
+#    id: dubbo
+#    name: dubbo
+#    port: 12346
+#    status: server

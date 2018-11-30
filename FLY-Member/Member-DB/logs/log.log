@@ -605,3 +605,967 @@ return extension.getExecutor(arg0);
 2018-11-19 15:13:02.851 [DubboMulticastRegistryReceiver] INFO  com.alibaba.dubbo.registry.multicast.MulticastRegistry -  [DUBBO] Receive multicast message: subscribe provider://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=10188&side=provider&timestamp=1542611582163 from /192.168.56.1:1234, dubbo version: 2.6.4, current host: 192.168.56.1
 2018-11-19 15:13:03.851 [main] WARN  com.alibaba.dubbo.registry.multicast.MulticastRegistry -  [DUBBO] Ignore empty notify urls for subscribe url provider://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=10188&side=provider&timestamp=1542611582163, dubbo version: 2.6.4, current host: 192.168.56.1
 2018-11-19 15:13:03.859 [main] INFO  com.alibaba.dubbo.container.Main -  [DUBBO] Dubbo SpringContainer started!, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:49.931 [main] INFO  com.alibaba.dubbo.common.logger.LoggerFactory - using logger: com.alibaba.dubbo.common.logger.slf4j.Slf4jLoggerAdapter
+2018-11-19 19:40:49.956 [main] INFO  com.alibaba.dubbo.container.Main -  [DUBBO] Use container type([spring]) to run dubbo serivce., dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.374 [main] INFO  c.a.d.c.s.beans.factory.annotation.ServiceAnnotationBeanPostProcessor -  [DUBBO] BeanNameGenerator bean can't be found in BeanFactory with name [org.springframework.context.annotation.internalConfigurationBeanNameGenerator], dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.374 [main] INFO  c.a.d.c.s.beans.factory.annotation.ServiceAnnotationBeanPostProcessor -  [DUBBO] BeanNameGenerator will be a instance of org.springframework.context.annotation.AnnotationBeanNameGenerator , it maybe a potential problem on bean name generation., dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.383 [main] WARN  c.a.d.c.s.beans.factory.annotation.ServiceAnnotationBeanPostProcessor -  [DUBBO] The BeanDefinition[Root bean: class [com.alibaba.dubbo.config.spring.ServiceBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] of ServiceBean has been registered with name : ServiceBean:memberDaoImpl:ivg.cn.member.dao.MemberDao, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.384 [main] INFO  c.a.d.c.s.beans.factory.annotation.ServiceAnnotationBeanPostProcessor -  [DUBBO] 1 annotated Dubbo's @Service Components { [Bean definition with name 'memberDaoImpl': Generic bean: class [ivg.cn.member.db.impl.MemberDaoImpl]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [E:\java_work\framework\V4\FLY-Member\Member-DB\target\classes\ivg\cn\member\db\impl\MemberDaoImpl.class]] } were scanned under package[ivg.cn.member], dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.567 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2018-11-19 19:40:50.576 [main] INFO  dbsplit - ------- initialize split tables --------
+2018-11-19 19:40:50.576 [main] INFO  dbsplit - ------- PRINT$PRINT 
+2018-11-19 19:40:50.576 [main] INFO  dbsplit - ------- PRINT$PRINT_DETAIL 
+2018-11-19 19:40:50.576 [main] INFO  dbsplit - ------- PRINT$PRINT_DETAIL_EPC 
+2018-11-19 19:40:50.576 [main] INFO  dbsplit - ----------------------------------------
+2018-11-19 19:40:50.595 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2018-11-19 19:40:50.632 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.rpc;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Protocol$Adaptive implements com.alibaba.dubbo.rpc.Protocol {
+public void destroy() {throw new UnsupportedOperationException("method public abstract void com.alibaba.dubbo.rpc.Protocol.destroy() of interface com.alibaba.dubbo.rpc.Protocol is not adaptive method!");
+}
+public int getDefaultPort() {throw new UnsupportedOperationException("method public abstract int com.alibaba.dubbo.rpc.Protocol.getDefaultPort() of interface com.alibaba.dubbo.rpc.Protocol is not adaptive method!");
+}
+public com.alibaba.dubbo.rpc.Exporter export(com.alibaba.dubbo.rpc.Invoker arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.Protocol) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.rpc.Protocol extension = (com.alibaba.dubbo.rpc.Protocol)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.Protocol.class).getExtension(extName);
+return extension.export(arg0);
+}
+public com.alibaba.dubbo.rpc.Invoker refer(java.lang.Class arg0, com.alibaba.dubbo.common.URL arg1) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg1 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg1;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.Protocol) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.rpc.Protocol extension = (com.alibaba.dubbo.rpc.Protocol)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.Protocol.class).getExtension(extName);
+return extension.refer(arg0, arg1);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.634 [main] WARN  com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] No spring extension(bean) named:defaultCompiler, try to find an extension(bean) of type java.lang.String, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.634 [main] WARN  com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] No spring extension(bean) named:defaultCompiler, type:java.lang.String found, stop get bean., dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.711 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.rpc;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ProxyFactory$Adaptive implements com.alibaba.dubbo.rpc.ProxyFactory {
+public java.lang.Object getProxy(com.alibaba.dubbo.rpc.Invoker arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.ProxyFactory) name from url(" + url.toString() + ") use keys([proxy])");
+com.alibaba.dubbo.rpc.ProxyFactory extension = (com.alibaba.dubbo.rpc.ProxyFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getProxy(arg0);
+}
+public java.lang.Object getProxy(com.alibaba.dubbo.rpc.Invoker arg0, boolean arg1) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.ProxyFactory) name from url(" + url.toString() + ") use keys([proxy])");
+com.alibaba.dubbo.rpc.ProxyFactory extension = (com.alibaba.dubbo.rpc.ProxyFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getProxy(arg0, arg1);
+}
+public com.alibaba.dubbo.rpc.Invoker getInvoker(java.lang.Object arg0, java.lang.Class arg1, com.alibaba.dubbo.common.URL arg2) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg2 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg2;
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.ProxyFactory) name from url(" + url.toString() + ") use keys([proxy])");
+com.alibaba.dubbo.rpc.ProxyFactory extension = (com.alibaba.dubbo.rpc.ProxyFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getInvoker(arg0, arg1, arg2);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.752 [main] INFO  com.alibaba.dubbo.config.AbstractConfig -  [DUBBO] The service ready on spring started. service: ivg.cn.member.dao.MemberDao, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.755 [main] WARN  com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] No spring extension(bean) named:level, try to find an extension(bean) of type com.alibaba.dubbo.common.logger.Level, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.758 [main] DEBUG com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] Error when get spring extension(bean) for type:com.alibaba.dubbo.common.logger.Level, dubbo version: 2.6.4, current host: 192.168.56.1
+org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.alibaba.dubbo.common.logger.Level' available
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:353) ~[spring-beans-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:340) ~[spring-beans-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1092) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory.getExtension(SpringExtensionFactory.java:67) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.factory.AdaptiveExtensionFactory.getExtension(AdaptiveExtensionFactory.java:47) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.injectExtension(ExtensionLoader.java:521) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.createExtension(ExtensionLoader.java:497) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.getExtension(ExtensionLoader.java:309) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.logger.LoggerFactory.setLoggerAdapter(LoggerFactory.java:72) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ApplicationConfig.setLogger(ApplicationConfig.java:202) [dubbo-2.6.4.jar:2.6.4]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_101]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_101]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_101]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_101]
+	at com.alibaba.dubbo.config.AbstractConfig.appendProperties(AbstractConfig.java:150) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.AbstractInterfaceConfig.checkApplication(AbstractInterfaceConfig.java:148) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:309) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.export(ServiceConfig.java:216) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:123) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:49) [dubbo-2.6.4.jar:2.6.4]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:393) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:347) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:883) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at com.alibaba.dubbo.container.spring.SpringContainer.start(SpringContainer.java:50) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.container.Main.main(Main.java:86) [dubbo-2.6.4.jar:2.6.4]
+	at ivg.cn.member.db.MemberDBStartup.main(MemberDBStartup.java:13) [classes/:na]
+2018-11-19 19:40:50.758 [main] WARN  com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] No spring extension(bean) named:level, type:com.alibaba.dubbo.common.logger.Level found, stop get bean., dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.759 [main] WARN  com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] No spring extension(bean) named:file, try to find an extension(bean) of type java.io.File, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.759 [main] DEBUG com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] Error when get spring extension(bean) for type:java.io.File, dubbo version: 2.6.4, current host: 192.168.56.1
+org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'java.io.File' available
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:353) ~[spring-beans-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:340) ~[spring-beans-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1092) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory.getExtension(SpringExtensionFactory.java:67) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.factory.AdaptiveExtensionFactory.getExtension(AdaptiveExtensionFactory.java:47) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.injectExtension(ExtensionLoader.java:521) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.createExtension(ExtensionLoader.java:497) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.getExtension(ExtensionLoader.java:309) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.common.logger.LoggerFactory.setLoggerAdapter(LoggerFactory.java:72) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ApplicationConfig.setLogger(ApplicationConfig.java:202) [dubbo-2.6.4.jar:2.6.4]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_101]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_101]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_101]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_101]
+	at com.alibaba.dubbo.config.AbstractConfig.appendProperties(AbstractConfig.java:150) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.AbstractInterfaceConfig.checkApplication(AbstractInterfaceConfig.java:148) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:309) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.export(ServiceConfig.java:216) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:123) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:49) [dubbo-2.6.4.jar:2.6.4]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:393) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:347) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:883) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at com.alibaba.dubbo.container.spring.SpringContainer.start(SpringContainer.java:50) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.container.Main.main(Main.java:86) [dubbo-2.6.4.jar:2.6.4]
+	at ivg.cn.member.db.MemberDBStartup.main(MemberDBStartup.java:13) [classes/:na]
+2018-11-19 19:40:50.759 [main] WARN  com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory -  [DUBBO] No spring extension(bean) named:file, type:java.io.File found, stop get bean., dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.759 [main] INFO  com.alibaba.dubbo.common.logger.LoggerFactory - using logger: com.alibaba.dubbo.common.logger.slf4j.Slf4jLoggerAdapter
+2018-11-19 19:40:50.812 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.cache;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class CacheFactory$Adaptive implements com.alibaba.dubbo.cache.CacheFactory {
+public com.alibaba.dubbo.cache.Cache getCache(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.rpc.Invocation arg1) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+if (arg1 == null) throw new IllegalArgumentException("invocation == null");
+String methodName = arg1.getMethodName();
+String extName = url.getMethodParameter(methodName, "cache", "lru");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.cache.CacheFactory) name from url(" + url.toString() + ") use keys([cache])");
+com.alibaba.dubbo.cache.CacheFactory extension = (com.alibaba.dubbo.cache.CacheFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.cache.CacheFactory.class).getExtension(extName);
+return extension.getCache(arg0, arg1);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.819 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.monitor;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class MonitorFactory$Adaptive implements com.alibaba.dubbo.monitor.MonitorFactory {
+public com.alibaba.dubbo.monitor.Monitor getMonitor(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.monitor.MonitorFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.monitor.MonitorFactory extension = (com.alibaba.dubbo.monitor.MonitorFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.monitor.MonitorFactory.class).getExtension(extName);
+return extension.getMonitor(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.825 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.validation;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Validation$Adaptive implements com.alibaba.dubbo.validation.Validation {
+public com.alibaba.dubbo.validation.Validator getValidator(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("validation", "jvalidation");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.validation.Validation) name from url(" + url.toString() + ") use keys([validation])");
+com.alibaba.dubbo.validation.Validation extension = (com.alibaba.dubbo.validation.Validation)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.validation.Validation.class).getExtension(extName);
+return extension.getValidator(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.833 [main] INFO  com.alibaba.dubbo.config.AbstractConfig -  [DUBBO] Export dubbo service ivg.cn.member.dao.MemberDao to local registry, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.833 [main] INFO  com.alibaba.dubbo.config.AbstractConfig -  [DUBBO] Export dubbo service ivg.cn.member.dao.MemberDao to url dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&bind.ip=192.168.56.1&bind.port=20898&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=9836&side=provider&timestamp=1542627650765, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.833 [main] INFO  com.alibaba.dubbo.config.AbstractConfig -  [DUBBO] Register dubbo service ivg.cn.member.dao.MemberDao url dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&bind.ip=192.168.56.1&bind.port=20898&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=9836&side=provider&timestamp=1542627650765 to registry registry://192.168.5.131:16481/com.alibaba.dubbo.registry.RegistryService?application=print-db&dubbo=2.0.2&logger=slf4j&pid=9836&registry=zookeeper&timestamp=1542627650761, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.838 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.rpc.cluster;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Cluster$Adaptive implements com.alibaba.dubbo.rpc.cluster.Cluster {
+public com.alibaba.dubbo.rpc.Invoker join(com.alibaba.dubbo.rpc.cluster.Directory arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.cluster.Directory argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.cluster.Directory argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("cluster", "failover");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.cluster.Cluster) name from url(" + url.toString() + ") use keys([cluster])");
+com.alibaba.dubbo.rpc.cluster.Cluster extension = (com.alibaba.dubbo.rpc.cluster.Cluster)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.cluster.Cluster.class).getExtension(extName);
+return extension.join(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.842 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.registry;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class RegistryFactory$Adaptive implements com.alibaba.dubbo.registry.RegistryFactory {
+public com.alibaba.dubbo.registry.Registry getRegistry(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.registry.RegistryFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.registry.RegistryFactory extension = (com.alibaba.dubbo.registry.RegistryFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.registry.RegistryFactory.class).getExtension(extName);
+return extension.getRegistry(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:50.852 [main] DEBUG io.netty.util.internal.logging.InternalLoggerFactory - Using SLF4J as the default logging framework
+2018-11-19 19:40:50.853 [main] DEBUG io.netty.channel.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 16
+2018-11-19 19:40:50.866 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+2018-11-19 19:40:50.866 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+2018-11-19 19:40:50.876 [main] DEBUG io.netty.util.internal.PlatformDependent - Platform: Windows
+2018-11-19 19:40:50.877 [main] DEBUG io.netty.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2018-11-19 19:40:50.877 [main] DEBUG io.netty.util.internal.PlatformDependent0 - Java version: 8
+2018-11-19 19:40:50.878 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2018-11-19 19:40:50.878 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
+2018-11-19 19:40:50.878 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2018-11-19 19:40:50.879 [main] DEBUG io.netty.util.internal.PlatformDependent0 - direct buffer constructor: available
+2018-11-19 19:40:50.879 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2018-11-19 19:40:50.879 [main] DEBUG io.netty.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+2018-11-19 19:40:50.879 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, int): available
+2018-11-19 19:40:50.879 [main] DEBUG io.netty.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2018-11-19 19:40:50.879 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.tmpdir: C:\Users\Administrator\AppData\Local\Temp (java.io.tmpdir)
+2018-11-19 19:40:50.879 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2018-11-19 19:40:50.880 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: 1888485376 bytes
+2018-11-19 19:40:50.880 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2018-11-19 19:40:50.881 [main] DEBUG io.netty.util.internal.CleanerJava6 - java.nio.ByteBuffer.cleaner(): available
+2018-11-19 19:40:50.881 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2018-11-19 19:40:50.924 [main] DEBUG io.netty.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2018-11-19 19:40:51.210 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.processId: 9836 (auto-detected)
+2018-11-19 19:40:51.212 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv4Stack: false
+2018-11-19 19:40:51.212 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv6Addresses: false
+2018-11-19 19:40:51.249 [main] DEBUG io.netty.util.NetUtil - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2018-11-19 19:40:51.250 [main] DEBUG io.netty.util.NetUtil - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2018-11-19 19:40:51.290 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.machineId: 00:23:24:ff:fe:e8:15:17 (auto-detected)
+2018-11-19 19:40:51.293 [main] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2018-11-19 19:40:51.293 [main] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2018-11-19 19:40:51.298 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+2018-11-19 19:40:51.298 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+2018-11-19 19:40:51.312 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 16
+2018-11-19 19:40:51.312 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 16
+2018-11-19 19:40:51.312 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+2018-11-19 19:40:51.312 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 11
+2018-11-19 19:40:51.312 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 16777216
+2018-11-19 19:40:51.312 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.tinyCacheSize: 512
+2018-11-19 19:40:51.312 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+2018-11-19 19:40:51.312 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+2018-11-19 19:40:51.312 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2018-11-19 19:40:51.312 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+2018-11-19 19:40:51.312 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.useCacheForAllThreads: true
+2018-11-19 19:40:51.316 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: pooled
+2018-11-19 19:40:51.317 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 0
+2018-11-19 19:40:51.317 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2018-11-19 19:40:51.336 [main] INFO  com.alibaba.dubbo.qos.server.Server -  [DUBBO] qos-server bind localhost:22222, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:51.343 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.remoting;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Transporter$Adaptive implements com.alibaba.dubbo.remoting.Transporter {
+public com.alibaba.dubbo.remoting.Client connect(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.remoting.ChannelHandler arg1) throws com.alibaba.dubbo.remoting.RemotingException {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("client", url.getParameter("transporter", "netty"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Transporter) name from url(" + url.toString() + ") use keys([client, transporter])");
+com.alibaba.dubbo.remoting.Transporter extension = (com.alibaba.dubbo.remoting.Transporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Transporter.class).getExtension(extName);
+return extension.connect(arg0, arg1);
+}
+public com.alibaba.dubbo.remoting.Server bind(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.remoting.ChannelHandler arg1) throws com.alibaba.dubbo.remoting.RemotingException {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("server", url.getParameter("transporter", "netty"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Transporter) name from url(" + url.toString() + ") use keys([server, transporter])");
+com.alibaba.dubbo.remoting.Transporter extension = (com.alibaba.dubbo.remoting.Transporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Transporter.class).getExtension(extName);
+return extension.bind(arg0, arg1);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:51.352 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.remoting;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Dispatcher$Adaptive implements com.alibaba.dubbo.remoting.Dispatcher {
+public com.alibaba.dubbo.remoting.ChannelHandler dispatch(com.alibaba.dubbo.remoting.ChannelHandler arg0, com.alibaba.dubbo.common.URL arg1) {
+if (arg1 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg1;
+String extName = url.getParameter("dispatcher", url.getParameter("dispather", url.getParameter("channel.handler", "all")));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Dispatcher) name from url(" + url.toString() + ") use keys([dispatcher, dispather, channel.handler])");
+com.alibaba.dubbo.remoting.Dispatcher extension = (com.alibaba.dubbo.remoting.Dispatcher)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Dispatcher.class).getExtension(extName);
+return extension.dispatch(arg0, arg1);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:51.358 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.common.threadpool;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ThreadPool$Adaptive implements com.alibaba.dubbo.common.threadpool.ThreadPool {
+public java.util.concurrent.Executor getExecutor(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("threadpool", "fixed");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.common.threadpool.ThreadPool) name from url(" + url.toString() + ") use keys([threadpool])");
+com.alibaba.dubbo.common.threadpool.ThreadPool extension = (com.alibaba.dubbo.common.threadpool.ThreadPool)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.common.threadpool.ThreadPool.class).getExtension(extName);
+return extension.getExecutor(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:51.450 [main] INFO  com.alibaba.dubbo.remoting.transport.AbstractServer -  [DUBBO] Start NettyServer bind /0.0.0.0:20898, export /192.168.56.1:20898, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:51.452 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.remoting.zookeeper;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ZookeeperTransporter$Adaptive implements com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter {
+public com.alibaba.dubbo.remoting.zookeeper.ZookeeperClient connect(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("client", url.getParameter("transporter", "curator"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter) name from url(" + url.toString() + ") use keys([client, transporter])");
+com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter extension = (com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter.class).getExtension(extName);
+return extension.connect(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:51.459 [main] INFO  com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry -  [DUBBO] Load registry store file C:\Users\Administrator\.dubbo\dubbo-registry-print-db-192.168.5.131:16481.cache, data: {ivg.cn.print.dao.PrintDao=empty://192.168.56.1:20898/ivg.cn.print.dao.PrintDao?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.print.dao.PrintDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=6904&side=provider&timestamp=1542627257827, ivg.cn.print.dao.PrintDetailEpcDao=empty://192.168.56.1:20898/ivg.cn.print.dao.PrintDetailEpcDao?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.print.dao.PrintDetailEpcDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=6904&side=provider&timestamp=1542627257906, ivg.cn.print.dao.PrintDetailDao=empty://192.168.56.1:20898/ivg.cn.print.dao.PrintDetailDao?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.print.dao.PrintDetailDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=6904&side=provider&timestamp=1542627257867, ivg.cn.print.dbservice.DBPrintService=empty://192.168.56.1:20898/ivg.cn.print.dbservice.DBPrintService?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.print.dbservice.DBPrintService&logger=slf4j&methods=processPrintTask,insertPrint&pid=6904&side=provider&timeout=5000&timestamp=1542627256990}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:51.464 [Thread-3] INFO  com.alibaba.dubbo.registry.support.AbstractRegistryFactory -  [DUBBO] Close all registries [], dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:51.464 [Thread-3] INFO  com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol -  [DUBBO] Close dubbo server: /192.168.56.1:20898, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:51.465 [Thread-3] INFO  com.alibaba.dubbo.remoting.transport.AbstractServer -  [DUBBO] Close NettyServer bind /0.0.0.0:20898, export /192.168.56.1:20898, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:51.467 [Thread-3] INFO  com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol -  [DUBBO] Unexport service: dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&bind.ip=192.168.56.1&bind.port=20898&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=9836&side=provider&timestamp=1542627650765, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:40:51.467 [Thread-3] INFO  com.alibaba.dubbo.rpc.protocol.injvm.InjvmProtocol -  [DUBBO] Unexport service: injvm://127.0.0.1/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&bind.ip=192.168.56.1&bind.port=20898&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=9836&side=provider&timestamp=1542627650765, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:27.246 [main] INFO  dbsplit - ------- initialize split tables --------
+2018-11-19 19:41:27.248 [main] INFO  dbsplit - ------- PRINT$PRINT 
+2018-11-19 19:41:27.248 [main] INFO  dbsplit - ------- PRINT$PRINT_DETAIL 
+2018-11-19 19:41:27.248 [main] INFO  dbsplit - ------- PRINT$PRINT_DETAIL_EPC 
+2018-11-19 19:41:27.248 [main] INFO  dbsplit - ----------------------------------------
+2018-11-19 19:41:27.448 [main] INFO  com.alibaba.dubbo.common.logger.LoggerFactory - using logger: com.alibaba.dubbo.common.logger.slf4j.Slf4jLoggerAdapter
+2018-11-19 19:41:27.500 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.cache;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class CacheFactory$Adaptive implements com.alibaba.dubbo.cache.CacheFactory {
+public com.alibaba.dubbo.cache.Cache getCache(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.rpc.Invocation arg1) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+if (arg1 == null) throw new IllegalArgumentException("invocation == null");
+String methodName = arg1.getMethodName();
+String extName = url.getMethodParameter(methodName, "cache", "lru");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.cache.CacheFactory) name from url(" + url.toString() + ") use keys([cache])");
+com.alibaba.dubbo.cache.CacheFactory extension = (com.alibaba.dubbo.cache.CacheFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.cache.CacheFactory.class).getExtension(extName);
+return extension.getCache(arg0, arg1);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:27.509 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.monitor;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class MonitorFactory$Adaptive implements com.alibaba.dubbo.monitor.MonitorFactory {
+public com.alibaba.dubbo.monitor.Monitor getMonitor(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.monitor.MonitorFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.monitor.MonitorFactory extension = (com.alibaba.dubbo.monitor.MonitorFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.monitor.MonitorFactory.class).getExtension(extName);
+return extension.getMonitor(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:27.514 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.validation;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Validation$Adaptive implements com.alibaba.dubbo.validation.Validation {
+public com.alibaba.dubbo.validation.Validator getValidator(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("validation", "jvalidation");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.validation.Validation) name from url(" + url.toString() + ") use keys([validation])");
+com.alibaba.dubbo.validation.Validation extension = (com.alibaba.dubbo.validation.Validation)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.validation.Validation.class).getExtension(extName);
+return extension.getValidator(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:27.521 [main] INFO  com.alibaba.dubbo.config.AbstractConfig -  [DUBBO] Export dubbo service ivg.cn.member.dao.MemberDao to local registry, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:27.522 [main] INFO  com.alibaba.dubbo.config.AbstractConfig -  [DUBBO] Export dubbo service ivg.cn.member.dao.MemberDao to url dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&bind.ip=192.168.56.1&bind.port=20898&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=8112&side=provider&timestamp=1542627687454, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:27.522 [main] INFO  com.alibaba.dubbo.config.AbstractConfig -  [DUBBO] Register dubbo service ivg.cn.member.dao.MemberDao url dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&bind.ip=192.168.56.1&bind.port=20898&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=8112&side=provider&timestamp=1542627687454 to registry registry://192.168.5.131:16481/com.alibaba.dubbo.registry.RegistryService?application=print-db&dubbo=2.0.2&logger=slf4j&pid=8112&registry=zookeeper&timestamp=1542627687450, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:27.526 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.rpc.cluster;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Cluster$Adaptive implements com.alibaba.dubbo.rpc.cluster.Cluster {
+public com.alibaba.dubbo.rpc.Invoker join(com.alibaba.dubbo.rpc.cluster.Directory arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.cluster.Directory argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.cluster.Directory argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("cluster", "failover");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.cluster.Cluster) name from url(" + url.toString() + ") use keys([cluster])");
+com.alibaba.dubbo.rpc.cluster.Cluster extension = (com.alibaba.dubbo.rpc.cluster.Cluster)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.cluster.Cluster.class).getExtension(extName);
+return extension.join(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:27.532 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.registry;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class RegistryFactory$Adaptive implements com.alibaba.dubbo.registry.RegistryFactory {
+public com.alibaba.dubbo.registry.Registry getRegistry(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.registry.RegistryFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.registry.RegistryFactory extension = (com.alibaba.dubbo.registry.RegistryFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.registry.RegistryFactory.class).getExtension(extName);
+return extension.getRegistry(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:27.543 [main] DEBUG io.netty.util.internal.logging.InternalLoggerFactory - Using SLF4J as the default logging framework
+2018-11-19 19:41:27.544 [main] DEBUG io.netty.channel.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 16
+2018-11-19 19:41:27.557 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+2018-11-19 19:41:27.557 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+2018-11-19 19:41:27.566 [main] DEBUG io.netty.util.internal.PlatformDependent - Platform: Windows
+2018-11-19 19:41:27.567 [main] DEBUG io.netty.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2018-11-19 19:41:27.567 [main] DEBUG io.netty.util.internal.PlatformDependent0 - Java version: 8
+2018-11-19 19:41:27.568 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2018-11-19 19:41:27.568 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
+2018-11-19 19:41:27.568 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2018-11-19 19:41:27.568 [main] DEBUG io.netty.util.internal.PlatformDependent0 - direct buffer constructor: available
+2018-11-19 19:41:27.569 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2018-11-19 19:41:27.569 [main] DEBUG io.netty.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+2018-11-19 19:41:27.569 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, int): available
+2018-11-19 19:41:27.569 [main] DEBUG io.netty.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2018-11-19 19:41:27.569 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.tmpdir: C:\Users\Administrator\AppData\Local\Temp (java.io.tmpdir)
+2018-11-19 19:41:27.569 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2018-11-19 19:41:27.570 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: 1888485376 bytes
+2018-11-19 19:41:27.570 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2018-11-19 19:41:27.570 [main] DEBUG io.netty.util.internal.CleanerJava6 - java.nio.ByteBuffer.cleaner(): available
+2018-11-19 19:41:27.570 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2018-11-19 19:41:27.574 [main] DEBUG io.netty.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2018-11-19 19:41:27.900 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.processId: 8112 (auto-detected)
+2018-11-19 19:41:27.901 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv4Stack: false
+2018-11-19 19:41:27.901 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv6Addresses: false
+2018-11-19 19:41:27.938 [main] DEBUG io.netty.util.NetUtil - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2018-11-19 19:41:27.939 [main] DEBUG io.netty.util.NetUtil - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2018-11-19 19:41:27.986 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.machineId: 00:23:24:ff:fe:e8:15:17 (auto-detected)
+2018-11-19 19:41:27.990 [main] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2018-11-19 19:41:27.990 [main] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2018-11-19 19:41:27.995 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+2018-11-19 19:41:27.995 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+2018-11-19 19:41:28.015 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 16
+2018-11-19 19:41:28.015 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 16
+2018-11-19 19:41:28.015 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+2018-11-19 19:41:28.015 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 11
+2018-11-19 19:41:28.015 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 16777216
+2018-11-19 19:41:28.015 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.tinyCacheSize: 512
+2018-11-19 19:41:28.015 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+2018-11-19 19:41:28.015 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+2018-11-19 19:41:28.015 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2018-11-19 19:41:28.015 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+2018-11-19 19:41:28.015 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.useCacheForAllThreads: true
+2018-11-19 19:41:28.020 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: pooled
+2018-11-19 19:41:28.020 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 0
+2018-11-19 19:41:28.020 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2018-11-19 19:41:28.042 [main] INFO  com.alibaba.dubbo.qos.server.Server -  [DUBBO] qos-server bind localhost:22222, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:28.049 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.remoting;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Transporter$Adaptive implements com.alibaba.dubbo.remoting.Transporter {
+public com.alibaba.dubbo.remoting.Client connect(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.remoting.ChannelHandler arg1) throws com.alibaba.dubbo.remoting.RemotingException {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("client", url.getParameter("transporter", "netty"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Transporter) name from url(" + url.toString() + ") use keys([client, transporter])");
+com.alibaba.dubbo.remoting.Transporter extension = (com.alibaba.dubbo.remoting.Transporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Transporter.class).getExtension(extName);
+return extension.connect(arg0, arg1);
+}
+public com.alibaba.dubbo.remoting.Server bind(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.remoting.ChannelHandler arg1) throws com.alibaba.dubbo.remoting.RemotingException {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("server", url.getParameter("transporter", "netty"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Transporter) name from url(" + url.toString() + ") use keys([server, transporter])");
+com.alibaba.dubbo.remoting.Transporter extension = (com.alibaba.dubbo.remoting.Transporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Transporter.class).getExtension(extName);
+return extension.bind(arg0, arg1);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:28.057 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.remoting;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Dispatcher$Adaptive implements com.alibaba.dubbo.remoting.Dispatcher {
+public com.alibaba.dubbo.remoting.ChannelHandler dispatch(com.alibaba.dubbo.remoting.ChannelHandler arg0, com.alibaba.dubbo.common.URL arg1) {
+if (arg1 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg1;
+String extName = url.getParameter("dispatcher", url.getParameter("dispather", url.getParameter("channel.handler", "all")));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Dispatcher) name from url(" + url.toString() + ") use keys([dispatcher, dispather, channel.handler])");
+com.alibaba.dubbo.remoting.Dispatcher extension = (com.alibaba.dubbo.remoting.Dispatcher)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Dispatcher.class).getExtension(extName);
+return extension.dispatch(arg0, arg1);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:28.063 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.common.threadpool;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ThreadPool$Adaptive implements com.alibaba.dubbo.common.threadpool.ThreadPool {
+public java.util.concurrent.Executor getExecutor(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("threadpool", "fixed");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.common.threadpool.ThreadPool) name from url(" + url.toString() + ") use keys([threadpool])");
+com.alibaba.dubbo.common.threadpool.ThreadPool extension = (com.alibaba.dubbo.common.threadpool.ThreadPool)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.common.threadpool.ThreadPool.class).getExtension(extName);
+return extension.getExecutor(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:28.159 [main] INFO  com.alibaba.dubbo.remoting.transport.AbstractServer -  [DUBBO] Start NettyServer bind /0.0.0.0:20898, export /192.168.56.1:20898, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:28.162 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.remoting.zookeeper;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ZookeeperTransporter$Adaptive implements com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter {
+public com.alibaba.dubbo.remoting.zookeeper.ZookeeperClient connect(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("client", url.getParameter("transporter", "curator"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter) name from url(" + url.toString() + ") use keys([client, transporter])");
+com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter extension = (com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter.class).getExtension(extName);
+return extension.connect(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:28.168 [main] INFO  com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry -  [DUBBO] Load registry store file C:\Users\Administrator\.dubbo\dubbo-registry-print-db-192.168.5.131:16481.cache, data: {ivg.cn.print.dao.PrintDao=empty://192.168.56.1:20898/ivg.cn.print.dao.PrintDao?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.print.dao.PrintDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=6904&side=provider&timestamp=1542627257827, ivg.cn.print.dao.PrintDetailEpcDao=empty://192.168.56.1:20898/ivg.cn.print.dao.PrintDetailEpcDao?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.print.dao.PrintDetailEpcDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=6904&side=provider&timestamp=1542627257906, ivg.cn.print.dao.PrintDetailDao=empty://192.168.56.1:20898/ivg.cn.print.dao.PrintDetailDao?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.print.dao.PrintDetailDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=6904&side=provider&timestamp=1542627257867, ivg.cn.print.dbservice.DBPrintService=empty://192.168.56.1:20898/ivg.cn.print.dbservice.DBPrintService?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.print.dbservice.DBPrintService&logger=slf4j&methods=processPrintTask,insertPrint&pid=6904&side=provider&timeout=5000&timestamp=1542627256990}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:28.203 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:zookeeper.version=3.5.3-beta-8ce24f9e675cbefffb8f21a47e06b42864475a60, built on 04/03/2017 16:19 GMT
+2018-11-19 19:41:28.203 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:host.name=chengshenggen
+2018-11-19 19:41:28.203 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.version=1.8.0_101
+2018-11-19 19:41:28.203 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.vendor=Oracle Corporation
+2018-11-19 19:41:28.203 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.home=C:\Program Files\Java\jdk1.8.0_101\jre
+2018-11-19 19:41:28.203 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.class.path=E:\java_work\framework\V4\FLY-Member\Member-DB\target\classes;D:\java\mavenrepo\clothes\io\netty\netty-all\4.1.30.Final\netty-all-4.1.30.Final.jar;D:\java\mavenrepo\clothes\com\alibaba\dubbo\2.6.4\dubbo-2.6.4.jar;D:\java\mavenrepo\clothes\org\springframework\spring-context\4.3.16.RELEASE\spring-context-4.3.16.RELEASE.jar;D:\java\mavenrepo\clothes\org\springframework\spring-aop\4.3.16.RELEASE\spring-aop-4.3.16.RELEASE.jar;D:\java\mavenrepo\clothes\org\springframework\spring-beans\4.3.16.RELEASE\spring-beans-4.3.16.RELEASE.jar;D:\java\mavenrepo\clothes\org\springframework\spring-expression\4.3.16.RELEASE\spring-expression-4.3.16.RELEASE.jar;D:\java\mavenrepo\clothes\org\javassist\javassist\3.20.0-GA\javassist-3.20.0-GA.jar;D:\java\mavenrepo\clothes\org\apache\curator\curator-recipes\4.0.1\curator-recipes-4.0.1.jar;D:\java\mavenrepo\clothes\org\apache\curator\curator-framework\4.0.1\curator-framework-4.0.1.jar;D:\java\mavenrepo\clothes\org\apache\curator\curator-client\4.0.1\curator-client-4.0.1.jar;D:\java\mavenrepo\clothes\org\apache\zookeeper\zookeeper\3.5.3-beta\zookeeper-3.5.3-beta.jar;D:\java\mavenrepo\clothes\commons-cli\commons-cli\1.2\commons-cli-1.2.jar;D:\java\mavenrepo\clothes\log4j\log4j\1.2.17\log4j-1.2.17.jar;D:\java\mavenrepo\clothes\io\netty\netty\3.10.5.Final\netty-3.10.5.Final.jar;D:\java\mavenrepo\clothes\com\google\guava\guava\20.0\guava-20.0.jar;E:\java_work\framework\V4\FLY-Component\dbsplit\target\classes;D:\java\mavenrepo\clothes\org\springframework\spring-core\4.3.16.RELEASE\spring-core-4.3.16.RELEASE.jar;D:\java\mavenrepo\clothes\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;D:\java\mavenrepo\clothes\org\springframework\spring-jdbc\4.3.16.RELEASE\spring-jdbc-4.3.16.RELEASE.jar;D:\java\mavenrepo\clothes\org\springframework\spring-tx\4.3.16.RELEASE\spring-tx-4.3.16.RELEASE.jar;D:\java\mavenrepo\clothes\com\alibaba\druid\1.0.15\druid-1.0.15.jar;D:\java\mavenrepo\clothes\com\alibaba\fastjson\1.2.6\fastjson-1.2.6.jar;D:\java\mavenrepo\clothes\commons-collections\commons-collections\3.2.1\commons-collections-3.2.1.jar;D:\java\mavenrepo\clothes\mysql\mysql-connector-java\5.1.36\mysql-connector-java-5.1.36.jar;D:\java\mavenrepo\clothes\org\slf4j\slf4j-api\1.7.12\slf4j-api-1.7.12.jar;D:\java\mavenrepo\clothes\ch\qos\logback\logback-classic\1.0.13\logback-classic-1.0.13.jar;D:\java\mavenrepo\clothes\ch\qos\logback\logback-core\1.0.13\logback-core-1.0.13.jar;E:\java_work\framework\V4\FLY-Member\Member-API\target\classes;E:\java_work\framework\V4\FLY-Common\target\classes
+2018-11-19 19:41:28.203 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=C:\Program Files\Java\jdk1.8.0_101\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:/Program Files/Java/jre1.8.0_101/bin/server;C:/Program Files/Java/jre1.8.0_101/bin;C:/Program Files/Java/jre1.8.0_101/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_101\bin;D:\Program Files\nodejs\;C:\Python27;C:\Python27\Scripts;D:\Program Files\TortoiseSVN\bin;D:\java\soft\apache-jmeter-3.2\bin;E:\java_work\studyspace\rocketmq-all\distribution\target\apache-rocketmq\bin;D:\Program Files\erl9.1\bin;C:\Program Files\Java\jdk1.8.0_101\jre\bin;C:\Program Files\Git\cmd;C:\Users\Administrator\AppData\Roaming\npm;c:\program files\esafenet\cobra docguard client;D:\Program Files\Docker Toolbox;D:\java\soft\eclipse;;.
+2018-11-19 19:41:28.203 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=C:\Users\Administrator\AppData\Local\Temp\
+2018-11-19 19:41:28.203 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+2018-11-19 19:41:28.203 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:os.name=Windows 7
+2018-11-19 19:41:28.203 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+2018-11-19 19:41:28.203 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:os.version=6.1
+2018-11-19 19:41:28.203 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:user.name=Administrator
+2018-11-19 19:41:28.203 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:user.home=C:\Users\Administrator
+2018-11-19 19:41:28.203 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:user.dir=E:\java_work\framework\V4\FLY-Member\Member-DB
+2018-11-19 19:41:28.203 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:os.memory.free=101MB
+2018-11-19 19:41:28.203 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:os.memory.max=1801MB
+2018-11-19 19:41:28.203 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:os.memory.total=130MB
+2018-11-19 19:41:28.222 [main] INFO  org.apache.curator.framework.imps.CuratorFrameworkImpl - Starting
+2018-11-19 19:41:28.222 [main] DEBUG org.apache.curator.CuratorZookeeperClient - Starting
+2018-11-19 19:41:28.222 [main] DEBUG org.apache.curator.ConnectionState - Starting
+2018-11-19 19:41:28.222 [main] DEBUG org.apache.curator.ConnectionState - reset
+2018-11-19 19:41:28.223 [main] INFO  org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.5.131:16481 sessionTimeout=60000 watcher=org.apache.curator.ConnectionState@1c80e49b
+2018-11-19 19:41:28.233 [main] INFO  org.apache.zookeeper.ClientCnxnSocket - jute.maxbuffer value is 4194304 Bytes
+2018-11-19 19:41:28.239 [main-SendThread(192.168.5.131:16481)] INFO  org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.5.131/192.168.5.131:16481. Will not attempt to authenticate using SASL (unknown error)
+2018-11-19 19:41:28.241 [main-SendThread(192.168.5.131:16481)] INFO  org.apache.zookeeper.ClientCnxn - Socket connection established, initiating session, client: /192.168.5.60:62126, server: 192.168.5.131/192.168.5.131:16481
+2018-11-19 19:41:28.242 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Session establishment request sent on 192.168.5.131/192.168.5.131:16481
+2018-11-19 19:41:28.243 [main] INFO  org.apache.curator.framework.imps.CuratorFrameworkImpl - Default schema
+2018-11-19 19:41:28.244 [main] INFO  com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry -  [DUBBO] Register: dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=8112&side=provider&timestamp=1542627687454, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:28.275 [main-SendThread(192.168.5.131:16481)] INFO  org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.5.131/192.168.5.131:16481, sessionid = 0x1014a87e0f10038, negotiated timeout = 40000
+2018-11-19 19:41:28.276 [main-EventThread] DEBUG org.apache.curator.ConnectionState - Negotiated session timeout: 40000
+2018-11-19 19:41:28.278 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: CONNECTED
+2018-11-19 19:41:28.278 [main-EventThread] DEBUG org.apache.curator.framework.imps.CuratorFrameworkImpl - Clearing sleep for 1 operations
+2018-11-19 19:41:28.283 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x1014a87e0f10038, packet:: clientPath:/zookeeper/config serverPath:/zookeeper/config finished:false header:: 1,4  replyHeader:: 1,884,-101  request:: '/zookeeper/config,T  response::  
+2018-11-19 19:41:28.283 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x1014a87e0f10038, packet:: clientPath:null serverPath:null finished:false header:: 2,3  replyHeader:: 2,884,-101  request:: '/dubbo/ivg.cn.member.dao.MemberDao/providers,F  response::  
+2018-11-19 19:41:28.284 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x1014a87e0f10038, packet:: clientPath:/zookeeper/config serverPath:/zookeeper/config finished:false header:: 3,4  replyHeader:: 3,884,-101  request:: '/zookeeper/config,T  response::  
+2018-11-19 19:41:28.286 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x1014a87e0f10038, packet:: clientPath:null serverPath:null finished:false header:: 4,3  replyHeader:: 4,884,-101  request:: '/dubbo/ivg.cn.member.dao.MemberDao,F  response::  
+2018-11-19 19:41:28.288 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x1014a87e0f10038, packet:: clientPath:null serverPath:null finished:false header:: 5,3  replyHeader:: 5,884,0  request:: '/dubbo,F  response:: s{784,784,1542625994700,1542625994700,0,4,0,0,12,4,797} 
+2018-11-19 19:41:28.295 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x1014a87e0f10038, packet:: clientPath:null serverPath:null finished:false header:: 6,15  replyHeader:: 6,-1,-6  request:: '/dubbo/ivg.cn.member.dao.MemberDao,#3139322e3136382e35362e31,v{s{31,s{'world,'anyone}}},0  response::  
+2018-11-19 19:41:28.296 [main-SendThread(192.168.5.131:16481)] INFO  org.apache.zookeeper.ClientCnxn - Unable to read additional data from server sessionid 0x1014a87e0f10038, likely server has closed socket, closing socket connection and attempting reconnect
+2018-11-19 19:41:28.304 [main] ERROR com.alibaba.dubbo.container.Main -  [DUBBO] Failed to register dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=8112&side=provider&timestamp=1542627687454 to registry 192.168.5.131:16481, cause: Failed to register dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=8112&side=provider&timestamp=1542627687454 to zookeeper zookeeper://192.168.5.131:16481/com.alibaba.dubbo.registry.RegistryService?application=print-db&dubbo=2.0.2&interface=com.alibaba.dubbo.registry.RegistryService&logger=slf4j&pid=8112&timestamp=1542627687450, cause: KeeperErrorCode = Unimplemented for /dubbo/ivg.cn.member.dao.MemberDao, dubbo version: 2.6.4, current host: 192.168.56.1
+java.lang.IllegalStateException: Failed to register dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=8112&side=provider&timestamp=1542627687454 to registry 192.168.5.131:16481, cause: Failed to register dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=8112&side=provider&timestamp=1542627687454 to zookeeper zookeeper://192.168.5.131:16481/com.alibaba.dubbo.registry.RegistryService?application=print-db&dubbo=2.0.2&interface=com.alibaba.dubbo.registry.RegistryService&logger=slf4j&pid=8112&timestamp=1542627687450, cause: KeeperErrorCode = Unimplemented for /dubbo/ivg.cn.member.dao.MemberDao
+	at com.alibaba.dubbo.registry.support.FailbackRegistry.register(FailbackRegistry.java:150) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.integration.RegistryProtocol.register(RegistryProtocol.java:126) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.integration.RegistryProtocol.export(RegistryProtocol.java:146) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:98) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.rpc.protocol.ProtocolListenerWrapper.export(ProtocolListenerWrapper.java:55) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:60) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.doExportUrlsFor1Protocol(ServiceConfig.java:513) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.doExportUrls(ServiceConfig.java:358) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:317) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.export(ServiceConfig.java:216) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:123) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:49) ~[dubbo-2.6.4.jar:2.6.4]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:393) ~[spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:347) ~[spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:883) ~[spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) ~[spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at com.alibaba.dubbo.container.spring.SpringContainer.start(SpringContainer.java:50) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.container.Main.main(Main.java:86) ~[dubbo-2.6.4.jar:2.6.4]
+	at ivg.cn.member.db.MemberDBStartup.main(MemberDBStartup.java:13) [classes/:na]
+Caused by: com.alibaba.dubbo.rpc.RpcException: Failed to register dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=8112&side=provider&timestamp=1542627687454 to zookeeper zookeeper://192.168.5.131:16481/com.alibaba.dubbo.registry.RegistryService?application=print-db&dubbo=2.0.2&interface=com.alibaba.dubbo.registry.RegistryService&logger=slf4j&pid=8112&timestamp=1542627687450, cause: KeeperErrorCode = Unimplemented for /dubbo/ivg.cn.member.dao.MemberDao
+	at com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry.doRegister(ZookeeperRegistry.java:116) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.support.FailbackRegistry.register(FailbackRegistry.java:137) ~[dubbo-2.6.4.jar:2.6.4]
+	... 22 common frames omitted
+Caused by: java.lang.IllegalStateException: KeeperErrorCode = Unimplemented for /dubbo/ivg.cn.member.dao.MemberDao
+	at com.alibaba.dubbo.remoting.zookeeper.curator.CuratorZookeeperClient.createPersistent(CuratorZookeeperClient.java:79) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.remoting.zookeeper.support.AbstractZookeeperClient.create(AbstractZookeeperClient.java:67) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.remoting.zookeeper.support.AbstractZookeeperClient.create(AbstractZookeeperClient.java:62) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.remoting.zookeeper.support.AbstractZookeeperClient.create(AbstractZookeeperClient.java:62) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry.doRegister(ZookeeperRegistry.java:114) ~[dubbo-2.6.4.jar:2.6.4]
+	... 23 common frames omitted
+Caused by: org.apache.zookeeper.KeeperException$UnimplementedException: KeeperErrorCode = Unimplemented for /dubbo/ivg.cn.member.dao.MemberDao
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:103) ~[zookeeper-3.5.3-beta.jar:3.5.3-beta-8ce24f9e675cbefffb8f21a47e06b42864475a60]
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51) ~[zookeeper-3.5.3-beta.jar:3.5.3-beta-8ce24f9e675cbefffb8f21a47e06b42864475a60]
+	at org.apache.zookeeper.ZooKeeper.create(ZooKeeper.java:1525) ~[zookeeper-3.5.3-beta.jar:3.5.3-beta-8ce24f9e675cbefffb8f21a47e06b42864475a60]
+	at org.apache.curator.framework.imps.CreateBuilderImpl$17.call(CreateBuilderImpl.java:1181) ~[curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.framework.imps.CreateBuilderImpl$17.call(CreateBuilderImpl.java:1158) ~[curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.connection.StandardConnectionHandlingPolicy.callWithRetry(StandardConnectionHandlingPolicy.java:64) ~[curator-client-4.0.1.jar:na]
+	at org.apache.curator.RetryLoop.callWithRetry(RetryLoop.java:100) ~[curator-client-4.0.1.jar:na]
+	at org.apache.curator.framework.imps.CreateBuilderImpl.pathInForeground(CreateBuilderImpl.java:1155) ~[curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.framework.imps.CreateBuilderImpl.protectedPathInForeground(CreateBuilderImpl.java:605) ~[curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.framework.imps.CreateBuilderImpl.forPath(CreateBuilderImpl.java:595) ~[curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.framework.imps.CreateBuilderImpl.forPath(CreateBuilderImpl.java:573) ~[curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.framework.imps.CreateBuilderImpl.forPath(CreateBuilderImpl.java:49) ~[curator-framework-4.0.1.jar:4.0.1]
+	at com.alibaba.dubbo.remoting.zookeeper.curator.CuratorZookeeperClient.createPersistent(CuratorZookeeperClient.java:76) ~[dubbo-2.6.4.jar:2.6.4]
+	... 27 common frames omitted
+2018-11-19 19:41:28.306 [Thread-0] INFO  com.alibaba.dubbo.registry.support.AbstractRegistryFactory -  [DUBBO] Close all registries [zookeeper://192.168.5.131:16481/com.alibaba.dubbo.registry.RegistryService?application=print-db&dubbo=2.0.2&interface=com.alibaba.dubbo.registry.RegistryService&logger=slf4j&pid=8112&timestamp=1542627687450], dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:28.306 [Thread-0] INFO  com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry -  [DUBBO] Destroy registry:zookeeper://192.168.5.131:16481/com.alibaba.dubbo.registry.RegistryService?application=print-db&dubbo=2.0.2&interface=com.alibaba.dubbo.registry.RegistryService&logger=slf4j&pid=8112&timestamp=1542627687450, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:28.306 [Thread-0] INFO  com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry -  [DUBBO] Unregister: dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=8112&side=provider&timestamp=1542627687454, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:28.397 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: SUSPENDED
+2018-11-19 19:41:28.397 [Thread-0] DEBUG org.apache.curator.RetryLoop - Retry-able exception received
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss for /dubbo/ivg.cn.member.dao.MemberDao/providers/dubbo%3A%2F%2F192.168.56.1%3A20898%2Fivg.cn.member.dao.MemberDao%3Fanyhost%3Dtrue%26application%3Dprint-db%26default.server%3Dnetty4%26dubbo%3D2.0.2%26generic%3Dfalse%26interface%3Divg.cn.member.dao.MemberDao%26logger%3Dslf4j%26methods%3Dselect%2CupdateWithId%2CbatchInsert%2Cupdate%2Cinsert%2Cdelete%2CselectOne%2CselectPages%2CselectByRowBounds%26pid%3D8112%26side%3Dprovider%26timestamp%3D1542627687454
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99) ~[zookeeper-3.5.3-beta.jar:3.5.3-beta-8ce24f9e675cbefffb8f21a47e06b42864475a60]
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51) ~[zookeeper-3.5.3-beta.jar:3.5.3-beta-8ce24f9e675cbefffb8f21a47e06b42864475a60]
+	at org.apache.zookeeper.ZooKeeper.delete(ZooKeeper.java:1681) ~[zookeeper-3.5.3-beta.jar:3.5.3-beta-8ce24f9e675cbefffb8f21a47e06b42864475a60]
+	at org.apache.curator.framework.imps.DeleteBuilderImpl$5.call(DeleteBuilderImpl.java:274) ~[curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.framework.imps.DeleteBuilderImpl$5.call(DeleteBuilderImpl.java:268) ~[curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.connection.StandardConnectionHandlingPolicy.callWithRetry(StandardConnectionHandlingPolicy.java:64) ~[curator-client-4.0.1.jar:na]
+	at org.apache.curator.RetryLoop.callWithRetry(RetryLoop.java:100) [curator-client-4.0.1.jar:na]
+	at org.apache.curator.framework.imps.DeleteBuilderImpl.pathInForeground(DeleteBuilderImpl.java:265) [curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.framework.imps.DeleteBuilderImpl.forPath(DeleteBuilderImpl.java:249) [curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.framework.imps.DeleteBuilderImpl.forPath(DeleteBuilderImpl.java:34) [curator-framework-4.0.1.jar:4.0.1]
+	at com.alibaba.dubbo.remoting.zookeeper.curator.CuratorZookeeperClient.delete(CuratorZookeeperClient.java:96) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry.doUnregister(ZookeeperRegistry.java:123) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.support.FailbackRegistry.unregister(FailbackRegistry.java:167) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.support.AbstractRegistry.destroy(AbstractRegistry.java:458) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.support.FailbackRegistry.destroy(FailbackRegistry.java:443) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry.destroy(ZookeeperRegistry.java:103) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.support.AbstractRegistryFactory.destroyAll(AbstractRegistryFactory.java:71) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.DubboShutdownHook.destroyAll(DubboShutdownHook.java:69) [dubbo-2.6.4.jar:2.6.4]
+	at org.apache.dubbo.bootstrap.DubboBootstrap.stop(DubboBootstrap.java:87) [dubbo-2.6.4.jar:2.6.4]
+	at org.apache.dubbo.config.spring.initializer.DubboApplicationListener.onApplicationEvent(DubboApplicationListener.java:46) [dubbo-2.6.4.jar:2.6.4]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:393) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:347) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:991) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext$2.run(AbstractApplicationContext.java:929) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+2018-11-19 19:41:29.397 [Thread-0] DEBUG org.apache.curator.RetryLoop - Retrying operation
+2018-11-19 19:41:29.978 [main-SendThread(192.168.5.131:16481)] INFO  org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.5.131/192.168.5.131:16481. Will not attempt to authenticate using SASL (unknown error)
+2018-11-19 19:41:29.981 [main-SendThread(192.168.5.131:16481)] INFO  org.apache.zookeeper.ClientCnxn - Socket connection established, initiating session, client: /192.168.5.60:62127, server: 192.168.5.131/192.168.5.131:16481
+2018-11-19 19:41:29.982 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Session establishment request sent on 192.168.5.131/192.168.5.131:16481
+2018-11-19 19:41:29.984 [main-SendThread(192.168.5.131:16481)] INFO  org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.5.131/192.168.5.131:16481, sessionid = 0x1014a87e0f10038, negotiated timeout = 40000
+2018-11-19 19:41:29.984 [main-EventThread] DEBUG org.apache.curator.ConnectionState - Negotiated session timeout: 40000
+2018-11-19 19:41:29.985 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: RECONNECTED
+2018-11-19 19:41:29.985 [main-EventThread] DEBUG org.apache.curator.framework.imps.CuratorFrameworkImpl - Clearing sleep for 0 operations
+2018-11-19 19:41:29.991 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x1014a87e0f10038, packet:: clientPath:null serverPath:null finished:false header:: 7,2  replyHeader:: 7,885,-101  request:: '/dubbo/ivg.cn.member.dao.MemberDao/providers/dubbo%253A%252F%252F192.168.56.1%253A20898%252Fivg.cn.member.dao.MemberDao%253Fanyhost%253Dtrue%2526application%253Dprint-db%2526default.server%253Dnetty4%2526dubbo%253D2.0.2%2526generic%253Dfalse%2526interface%253Divg.cn.member.dao.MemberDao%2526logger%253Dslf4j%2526methods%253Dselect%252CupdateWithId%252CbatchInsert%252Cupdate%252Cinsert%252Cdelete%252CselectOne%252CselectPages%252CselectByRowBounds%2526pid%253D8112%2526side%253Dprovider%2526timestamp%253D1542627687454,-1  response:: null
+2018-11-19 19:41:29.992 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x1014a87e0f10038, packet:: clientPath:/zookeeper/config serverPath:/zookeeper/config finished:false header:: 8,4  replyHeader:: 8,885,-101  request:: '/zookeeper/config,T  response::  
+2018-11-19 19:41:29.993 [Thread-0] INFO  com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry -  [DUBBO] Destroy unregister url dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=8112&side=provider&timestamp=1542627687454, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:29.994 [Thread-0] DEBUG org.apache.curator.framework.imps.CuratorFrameworkImpl - Closing
+2018-11-19 19:41:29.995 [Curator-Framework-0] INFO  org.apache.curator.framework.imps.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+2018-11-19 19:41:30.000 [Thread-0] DEBUG org.apache.curator.CuratorZookeeperClient - Closing
+2018-11-19 19:41:30.000 [Thread-0] DEBUG org.apache.curator.ConnectionState - Closing
+2018-11-19 19:41:30.002 [Thread-0] DEBUG org.apache.zookeeper.ZooKeeper - Closing session: 0x1014a87e0f10038
+2018-11-19 19:41:30.002 [Thread-0] DEBUG org.apache.zookeeper.ClientCnxn - Closing client for session: 0x1014a87e0f10038
+2018-11-19 19:41:30.015 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x1014a87e0f10038, packet:: clientPath:null serverPath:null finished:false header:: 9,-11  replyHeader:: 9,886,0  request:: null response:: null
+2018-11-19 19:41:30.015 [Thread-0] DEBUG org.apache.zookeeper.ClientCnxn - Disconnecting client for session: 0x1014a87e0f10038
+2018-11-19 19:41:30.016 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - An exception was thrown while closing send thread for session 0x1014a87e0f10038 : Unable to read additional data from server sessionid 0x1014a87e0f10038, likely server has closed socket
+2018-11-19 19:41:30.016 [main-EventThread] INFO  org.apache.zookeeper.ClientCnxn - EventThread shut down for session: 0x1014a87e0f10038
+2018-11-19 19:41:30.017 [Thread-0] INFO  org.apache.zookeeper.ZooKeeper - Session: 0x1014a87e0f10038 closed
+2018-11-19 19:41:30.017 [Thread-0] INFO  com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol -  [DUBBO] Close dubbo server: /192.168.56.1:20898, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:30.018 [Thread-0] INFO  com.alibaba.dubbo.remoting.transport.AbstractServer -  [DUBBO] Close NettyServer bind /0.0.0.0:20898, export /192.168.56.1:20898, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:30.023 [Thread-0] INFO  com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol -  [DUBBO] Unexport service: dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&bind.ip=192.168.56.1&bind.port=20898&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=8112&side=provider&timestamp=1542627687454, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:41:30.023 [Thread-0] INFO  com.alibaba.dubbo.rpc.protocol.injvm.InjvmProtocol -  [DUBBO] Unexport service: injvm://127.0.0.1/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&bind.ip=192.168.56.1&bind.port=20898&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=8112&side=provider&timestamp=1542627687454, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:47.633 [main] INFO  dbsplit - ------- initialize split tables --------
+2018-11-19 19:44:47.636 [main] INFO  dbsplit - ------- PRINT$PRINT 
+2018-11-19 19:44:47.636 [main] INFO  dbsplit - ------- PRINT$PRINT_DETAIL 
+2018-11-19 19:44:47.636 [main] INFO  dbsplit - ------- PRINT$PRINT_DETAIL_EPC 
+2018-11-19 19:44:47.636 [main] INFO  dbsplit - ----------------------------------------
+2018-11-19 19:44:47.852 [main] INFO  com.alibaba.dubbo.common.logger.LoggerFactory - using logger: com.alibaba.dubbo.common.logger.slf4j.Slf4jLoggerAdapter
+2018-11-19 19:44:47.902 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.cache;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class CacheFactory$Adaptive implements com.alibaba.dubbo.cache.CacheFactory {
+public com.alibaba.dubbo.cache.Cache getCache(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.rpc.Invocation arg1) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+if (arg1 == null) throw new IllegalArgumentException("invocation == null");
+String methodName = arg1.getMethodName();
+String extName = url.getMethodParameter(methodName, "cache", "lru");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.cache.CacheFactory) name from url(" + url.toString() + ") use keys([cache])");
+com.alibaba.dubbo.cache.CacheFactory extension = (com.alibaba.dubbo.cache.CacheFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.cache.CacheFactory.class).getExtension(extName);
+return extension.getCache(arg0, arg1);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:47.909 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.monitor;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class MonitorFactory$Adaptive implements com.alibaba.dubbo.monitor.MonitorFactory {
+public com.alibaba.dubbo.monitor.Monitor getMonitor(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.monitor.MonitorFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.monitor.MonitorFactory extension = (com.alibaba.dubbo.monitor.MonitorFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.monitor.MonitorFactory.class).getExtension(extName);
+return extension.getMonitor(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:47.916 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.validation;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Validation$Adaptive implements com.alibaba.dubbo.validation.Validation {
+public com.alibaba.dubbo.validation.Validator getValidator(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("validation", "jvalidation");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.validation.Validation) name from url(" + url.toString() + ") use keys([validation])");
+com.alibaba.dubbo.validation.Validation extension = (com.alibaba.dubbo.validation.Validation)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.validation.Validation.class).getExtension(extName);
+return extension.getValidator(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:47.924 [main] INFO  com.alibaba.dubbo.config.AbstractConfig -  [DUBBO] Export dubbo service ivg.cn.member.dao.MemberDao to local registry, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:47.924 [main] INFO  com.alibaba.dubbo.config.AbstractConfig -  [DUBBO] Export dubbo service ivg.cn.member.dao.MemberDao to url dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&bind.ip=192.168.56.1&bind.port=20898&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=7948&side=provider&timestamp=1542627887857, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:47.924 [main] INFO  com.alibaba.dubbo.config.AbstractConfig -  [DUBBO] Register dubbo service ivg.cn.member.dao.MemberDao url dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&bind.ip=192.168.56.1&bind.port=20898&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=7948&side=provider&timestamp=1542627887857 to registry registry://192.168.5.131:16481/com.alibaba.dubbo.registry.RegistryService?application=print-db&dubbo=2.0.2&logger=slf4j&pid=7948&registry=zookeeper&timestamp=1542627887854, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:47.929 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.rpc.cluster;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Cluster$Adaptive implements com.alibaba.dubbo.rpc.cluster.Cluster {
+public com.alibaba.dubbo.rpc.Invoker join(com.alibaba.dubbo.rpc.cluster.Directory arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.cluster.Directory argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.cluster.Directory argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("cluster", "failover");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.cluster.Cluster) name from url(" + url.toString() + ") use keys([cluster])");
+com.alibaba.dubbo.rpc.cluster.Cluster extension = (com.alibaba.dubbo.rpc.cluster.Cluster)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.cluster.Cluster.class).getExtension(extName);
+return extension.join(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:47.934 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.registry;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class RegistryFactory$Adaptive implements com.alibaba.dubbo.registry.RegistryFactory {
+public com.alibaba.dubbo.registry.Registry getRegistry(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.registry.RegistryFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.registry.RegistryFactory extension = (com.alibaba.dubbo.registry.RegistryFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.registry.RegistryFactory.class).getExtension(extName);
+return extension.getRegistry(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:47.943 [main] DEBUG io.netty.util.internal.logging.InternalLoggerFactory - Using SLF4J as the default logging framework
+2018-11-19 19:44:47.944 [main] DEBUG io.netty.channel.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 16
+2018-11-19 19:44:47.959 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+2018-11-19 19:44:47.959 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+2018-11-19 19:44:47.968 [main] DEBUG io.netty.util.internal.PlatformDependent - Platform: Windows
+2018-11-19 19:44:47.970 [main] DEBUG io.netty.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2018-11-19 19:44:47.970 [main] DEBUG io.netty.util.internal.PlatformDependent0 - Java version: 8
+2018-11-19 19:44:47.970 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2018-11-19 19:44:47.971 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
+2018-11-19 19:44:47.971 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2018-11-19 19:44:47.971 [main] DEBUG io.netty.util.internal.PlatformDependent0 - direct buffer constructor: available
+2018-11-19 19:44:47.972 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2018-11-19 19:44:47.972 [main] DEBUG io.netty.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+2018-11-19 19:44:47.972 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, int): available
+2018-11-19 19:44:47.972 [main] DEBUG io.netty.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2018-11-19 19:44:47.972 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.tmpdir: C:\Users\Administrator\AppData\Local\Temp (java.io.tmpdir)
+2018-11-19 19:44:47.972 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2018-11-19 19:44:47.973 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: 1888485376 bytes
+2018-11-19 19:44:47.973 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2018-11-19 19:44:47.974 [main] DEBUG io.netty.util.internal.CleanerJava6 - java.nio.ByteBuffer.cleaner(): available
+2018-11-19 19:44:47.974 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2018-11-19 19:44:48.051 [main] DEBUG io.netty.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2018-11-19 19:44:48.341 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.processId: 7948 (auto-detected)
+2018-11-19 19:44:48.342 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv4Stack: false
+2018-11-19 19:44:48.342 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv6Addresses: false
+2018-11-19 19:44:48.379 [main] DEBUG io.netty.util.NetUtil - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2018-11-19 19:44:48.380 [main] DEBUG io.netty.util.NetUtil - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2018-11-19 19:44:48.422 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.machineId: 00:23:24:ff:fe:e8:15:17 (auto-detected)
+2018-11-19 19:44:48.425 [main] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2018-11-19 19:44:48.425 [main] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2018-11-19 19:44:48.430 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+2018-11-19 19:44:48.430 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+2018-11-19 19:44:48.444 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 16
+2018-11-19 19:44:48.444 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 16
+2018-11-19 19:44:48.444 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+2018-11-19 19:44:48.444 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 11
+2018-11-19 19:44:48.444 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 16777216
+2018-11-19 19:44:48.444 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.tinyCacheSize: 512
+2018-11-19 19:44:48.444 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+2018-11-19 19:44:48.445 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+2018-11-19 19:44:48.445 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2018-11-19 19:44:48.445 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+2018-11-19 19:44:48.445 [main] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.useCacheForAllThreads: true
+2018-11-19 19:44:48.449 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: pooled
+2018-11-19 19:44:48.449 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 0
+2018-11-19 19:44:48.450 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2018-11-19 19:44:48.470 [main] INFO  com.alibaba.dubbo.qos.server.Server -  [DUBBO] qos-server bind localhost:22222, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:48.476 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.remoting;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Transporter$Adaptive implements com.alibaba.dubbo.remoting.Transporter {
+public com.alibaba.dubbo.remoting.Client connect(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.remoting.ChannelHandler arg1) throws com.alibaba.dubbo.remoting.RemotingException {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("client", url.getParameter("transporter", "netty"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Transporter) name from url(" + url.toString() + ") use keys([client, transporter])");
+com.alibaba.dubbo.remoting.Transporter extension = (com.alibaba.dubbo.remoting.Transporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Transporter.class).getExtension(extName);
+return extension.connect(arg0, arg1);
+}
+public com.alibaba.dubbo.remoting.Server bind(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.remoting.ChannelHandler arg1) throws com.alibaba.dubbo.remoting.RemotingException {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("server", url.getParameter("transporter", "netty"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Transporter) name from url(" + url.toString() + ") use keys([server, transporter])");
+com.alibaba.dubbo.remoting.Transporter extension = (com.alibaba.dubbo.remoting.Transporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Transporter.class).getExtension(extName);
+return extension.bind(arg0, arg1);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:48.485 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.remoting;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Dispatcher$Adaptive implements com.alibaba.dubbo.remoting.Dispatcher {
+public com.alibaba.dubbo.remoting.ChannelHandler dispatch(com.alibaba.dubbo.remoting.ChannelHandler arg0, com.alibaba.dubbo.common.URL arg1) {
+if (arg1 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg1;
+String extName = url.getParameter("dispatcher", url.getParameter("dispather", url.getParameter("channel.handler", "all")));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.Dispatcher) name from url(" + url.toString() + ") use keys([dispatcher, dispather, channel.handler])");
+com.alibaba.dubbo.remoting.Dispatcher extension = (com.alibaba.dubbo.remoting.Dispatcher)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.Dispatcher.class).getExtension(extName);
+return extension.dispatch(arg0, arg1);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:48.491 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.common.threadpool;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ThreadPool$Adaptive implements com.alibaba.dubbo.common.threadpool.ThreadPool {
+public java.util.concurrent.Executor getExecutor(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("threadpool", "fixed");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.common.threadpool.ThreadPool) name from url(" + url.toString() + ") use keys([threadpool])");
+com.alibaba.dubbo.common.threadpool.ThreadPool extension = (com.alibaba.dubbo.common.threadpool.ThreadPool)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.common.threadpool.ThreadPool.class).getExtension(extName);
+return extension.getExecutor(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:48.586 [main] INFO  com.alibaba.dubbo.remoting.transport.AbstractServer -  [DUBBO] Start NettyServer bind /0.0.0.0:20898, export /192.168.56.1:20898, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:48.589 [main] DEBUG com.alibaba.dubbo.common.extension.ExtensionLoader -  [DUBBO] package com.alibaba.dubbo.remoting.zookeeper;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ZookeeperTransporter$Adaptive implements com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter {
+public com.alibaba.dubbo.remoting.zookeeper.ZookeeperClient connect(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("client", url.getParameter("transporter", "curator"));
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter) name from url(" + url.toString() + ") use keys([client, transporter])");
+com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter extension = (com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.zookeeper.ZookeeperTransporter.class).getExtension(extName);
+return extension.connect(arg0);
+}
+}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:48.596 [main] INFO  com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry -  [DUBBO] Load registry store file C:\Users\Administrator\.dubbo\dubbo-registry-print-db-192.168.5.131:16481.cache, data: {ivg.cn.print.dao.PrintDao=empty://192.168.56.1:20898/ivg.cn.print.dao.PrintDao?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.print.dao.PrintDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=6904&side=provider&timestamp=1542627257827, ivg.cn.print.dao.PrintDetailEpcDao=empty://192.168.56.1:20898/ivg.cn.print.dao.PrintDetailEpcDao?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.print.dao.PrintDetailEpcDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=6904&side=provider&timestamp=1542627257906, ivg.cn.print.dao.PrintDetailDao=empty://192.168.56.1:20898/ivg.cn.print.dao.PrintDetailDao?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.print.dao.PrintDetailDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=6904&side=provider&timestamp=1542627257867, ivg.cn.print.dbservice.DBPrintService=empty://192.168.56.1:20898/ivg.cn.print.dbservice.DBPrintService?anyhost=true&application=print-db&category=configurators&check=false&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.print.dbservice.DBPrintService&logger=slf4j&methods=processPrintTask,insertPrint&pid=6904&side=provider&timeout=5000&timestamp=1542627256990}, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:48.631 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:zookeeper.version=3.5.3-beta-8ce24f9e675cbefffb8f21a47e06b42864475a60, built on 04/03/2017 16:19 GMT
+2018-11-19 19:44:48.631 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:host.name=chengshenggen
+2018-11-19 19:44:48.631 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.version=1.8.0_101
+2018-11-19 19:44:48.631 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.vendor=Oracle Corporation
+2018-11-19 19:44:48.631 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.home=C:\Program Files\Java\jdk1.8.0_101\jre
+2018-11-19 19:44:48.631 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.class.path=E:\java_work\framework\V4\FLY-Member\Member-DB\target\classes;D:\java\mavenrepo\clothes\io\netty\netty-all\4.1.30.Final\netty-all-4.1.30.Final.jar;D:\java\mavenrepo\clothes\com\alibaba\dubbo\2.6.4\dubbo-2.6.4.jar;D:\java\mavenrepo\clothes\org\springframework\spring-context\4.3.16.RELEASE\spring-context-4.3.16.RELEASE.jar;D:\java\mavenrepo\clothes\org\springframework\spring-aop\4.3.16.RELEASE\spring-aop-4.3.16.RELEASE.jar;D:\java\mavenrepo\clothes\org\springframework\spring-beans\4.3.16.RELEASE\spring-beans-4.3.16.RELEASE.jar;D:\java\mavenrepo\clothes\org\springframework\spring-expression\4.3.16.RELEASE\spring-expression-4.3.16.RELEASE.jar;D:\java\mavenrepo\clothes\org\javassist\javassist\3.20.0-GA\javassist-3.20.0-GA.jar;D:\java\mavenrepo\clothes\org\apache\curator\curator-recipes\4.0.1\curator-recipes-4.0.1.jar;D:\java\mavenrepo\clothes\org\apache\curator\curator-framework\4.0.1\curator-framework-4.0.1.jar;D:\java\mavenrepo\clothes\org\apache\curator\curator-client\4.0.1\curator-client-4.0.1.jar;D:\java\mavenrepo\clothes\org\apache\zookeeper\zookeeper\3.5.3-beta\zookeeper-3.5.3-beta.jar;D:\java\mavenrepo\clothes\commons-cli\commons-cli\1.2\commons-cli-1.2.jar;D:\java\mavenrepo\clothes\log4j\log4j\1.2.17\log4j-1.2.17.jar;D:\java\mavenrepo\clothes\io\netty\netty\3.10.5.Final\netty-3.10.5.Final.jar;D:\java\mavenrepo\clothes\com\google\guava\guava\20.0\guava-20.0.jar;E:\java_work\framework\V4\FLY-Component\dbsplit\target\classes;D:\java\mavenrepo\clothes\org\springframework\spring-core\4.3.16.RELEASE\spring-core-4.3.16.RELEASE.jar;D:\java\mavenrepo\clothes\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;D:\java\mavenrepo\clothes\org\springframework\spring-jdbc\4.3.16.RELEASE\spring-jdbc-4.3.16.RELEASE.jar;D:\java\mavenrepo\clothes\org\springframework\spring-tx\4.3.16.RELEASE\spring-tx-4.3.16.RELEASE.jar;D:\java\mavenrepo\clothes\com\alibaba\druid\1.0.15\druid-1.0.15.jar;D:\java\mavenrepo\clothes\com\alibaba\fastjson\1.2.6\fastjson-1.2.6.jar;D:\java\mavenrepo\clothes\commons-collections\commons-collections\3.2.1\commons-collections-3.2.1.jar;D:\java\mavenrepo\clothes\mysql\mysql-connector-java\5.1.36\mysql-connector-java-5.1.36.jar;D:\java\mavenrepo\clothes\org\slf4j\slf4j-api\1.7.12\slf4j-api-1.7.12.jar;D:\java\mavenrepo\clothes\ch\qos\logback\logback-classic\1.0.13\logback-classic-1.0.13.jar;D:\java\mavenrepo\clothes\ch\qos\logback\logback-core\1.0.13\logback-core-1.0.13.jar;E:\java_work\framework\V4\FLY-Member\Member-API\target\classes;E:\java_work\framework\V4\FLY-Common\target\classes
+2018-11-19 19:44:48.631 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=C:\Program Files\Java\jdk1.8.0_101\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:/Program Files/Java/jre1.8.0_101/bin/server;C:/Program Files/Java/jre1.8.0_101/bin;C:/Program Files/Java/jre1.8.0_101/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_101\bin;D:\Program Files\nodejs\;C:\Python27;C:\Python27\Scripts;D:\Program Files\TortoiseSVN\bin;D:\java\soft\apache-jmeter-3.2\bin;E:\java_work\studyspace\rocketmq-all\distribution\target\apache-rocketmq\bin;D:\Program Files\erl9.1\bin;C:\Program Files\Java\jdk1.8.0_101\jre\bin;C:\Program Files\Git\cmd;C:\Users\Administrator\AppData\Roaming\npm;c:\program files\esafenet\cobra docguard client;D:\Program Files\Docker Toolbox;D:\java\soft\eclipse;;.
+2018-11-19 19:44:48.631 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=C:\Users\Administrator\AppData\Local\Temp\
+2018-11-19 19:44:48.631 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+2018-11-19 19:44:48.631 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:os.name=Windows 7
+2018-11-19 19:44:48.631 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+2018-11-19 19:44:48.631 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:os.version=6.1
+2018-11-19 19:44:48.631 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:user.name=Administrator
+2018-11-19 19:44:48.631 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:user.home=C:\Users\Administrator
+2018-11-19 19:44:48.631 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:user.dir=E:\java_work\framework\V4\FLY-Member\Member-DB
+2018-11-19 19:44:48.631 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:os.memory.free=96MB
+2018-11-19 19:44:48.631 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:os.memory.max=1801MB
+2018-11-19 19:44:48.631 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:os.memory.total=126MB
+2018-11-19 19:44:48.649 [main] INFO  org.apache.curator.framework.imps.CuratorFrameworkImpl - Starting
+2018-11-19 19:44:48.651 [main] DEBUG org.apache.curator.CuratorZookeeperClient - Starting
+2018-11-19 19:44:48.651 [main] DEBUG org.apache.curator.ConnectionState - Starting
+2018-11-19 19:44:48.651 [main] DEBUG org.apache.curator.ConnectionState - reset
+2018-11-19 19:44:48.652 [main] INFO  org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.5.131:16481 sessionTimeout=60000 watcher=org.apache.curator.ConnectionState@1c80e49b
+2018-11-19 19:44:48.661 [main] INFO  org.apache.zookeeper.ClientCnxnSocket - jute.maxbuffer value is 4194304 Bytes
+2018-11-19 19:44:48.668 [main-SendThread(192.168.5.131:16481)] INFO  org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.5.131/192.168.5.131:16481. Will not attempt to authenticate using SASL (unknown error)
+2018-11-19 19:44:48.670 [main-SendThread(192.168.5.131:16481)] INFO  org.apache.zookeeper.ClientCnxn - Socket connection established, initiating session, client: /192.168.5.60:62335, server: 192.168.5.131/192.168.5.131:16481
+2018-11-19 19:44:48.671 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Session establishment request sent on 192.168.5.131/192.168.5.131:16481
+2018-11-19 19:44:48.671 [main] INFO  org.apache.curator.framework.imps.CuratorFrameworkImpl - Default schema
+2018-11-19 19:44:48.672 [main] INFO  com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry -  [DUBBO] Register: dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=7948&side=provider&timestamp=1542627887857, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:48.700 [main-SendThread(192.168.5.131:16481)] INFO  org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.5.131/192.168.5.131:16481, sessionid = 0x1014a87e0f10039, negotiated timeout = 40000
+2018-11-19 19:44:48.702 [main-EventThread] DEBUG org.apache.curator.ConnectionState - Negotiated session timeout: 40000
+2018-11-19 19:44:48.703 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: CONNECTED
+2018-11-19 19:44:48.704 [main-EventThread] DEBUG org.apache.curator.framework.imps.CuratorFrameworkImpl - Clearing sleep for 1 operations
+2018-11-19 19:44:48.708 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x1014a87e0f10039, packet:: clientPath:null serverPath:null finished:false header:: 1,3  replyHeader:: 1,887,-101  request:: '/dubbo/ivg.cn.member.dao.MemberDao/providers,F  response::  
+2018-11-19 19:44:48.709 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x1014a87e0f10039, packet:: clientPath:/zookeeper/config serverPath:/zookeeper/config finished:false header:: 2,4  replyHeader:: 2,887,-101  request:: '/zookeeper/config,T  response::  
+2018-11-19 19:44:48.709 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x1014a87e0f10039, packet:: clientPath:/zookeeper/config serverPath:/zookeeper/config finished:false header:: 3,4  replyHeader:: 3,887,-101  request:: '/zookeeper/config,T  response::  
+2018-11-19 19:44:48.710 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x1014a87e0f10039, packet:: clientPath:null serverPath:null finished:false header:: 4,3  replyHeader:: 4,887,-101  request:: '/dubbo/ivg.cn.member.dao.MemberDao,F  response::  
+2018-11-19 19:44:48.712 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x1014a87e0f10039, packet:: clientPath:null serverPath:null finished:false header:: 5,3  replyHeader:: 5,887,0  request:: '/dubbo,F  response:: s{784,784,1542625994700,1542625994700,0,4,0,0,12,4,797} 
+2018-11-19 19:44:48.719 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x1014a87e0f10039, packet:: clientPath:null serverPath:null finished:false header:: 6,15  replyHeader:: 6,-1,-6  request:: '/dubbo/ivg.cn.member.dao.MemberDao,#3139322e3136382e35362e31,v{s{31,s{'world,'anyone}}},0  response::  
+2018-11-19 19:44:48.720 [main-SendThread(192.168.5.131:16481)] INFO  org.apache.zookeeper.ClientCnxn - Unable to read additional data from server sessionid 0x1014a87e0f10039, likely server has closed socket, closing socket connection and attempting reconnect
+2018-11-19 19:44:48.728 [main] ERROR com.alibaba.dubbo.container.Main -  [DUBBO] Failed to register dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=7948&side=provider&timestamp=1542627887857 to registry 192.168.5.131:16481, cause: Failed to register dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=7948&side=provider&timestamp=1542627887857 to zookeeper zookeeper://192.168.5.131:16481/com.alibaba.dubbo.registry.RegistryService?application=print-db&dubbo=2.0.2&interface=com.alibaba.dubbo.registry.RegistryService&logger=slf4j&pid=7948&timestamp=1542627887854, cause: KeeperErrorCode = Unimplemented for /dubbo/ivg.cn.member.dao.MemberDao, dubbo version: 2.6.4, current host: 192.168.56.1
+java.lang.IllegalStateException: Failed to register dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=7948&side=provider&timestamp=1542627887857 to registry 192.168.5.131:16481, cause: Failed to register dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=7948&side=provider&timestamp=1542627887857 to zookeeper zookeeper://192.168.5.131:16481/com.alibaba.dubbo.registry.RegistryService?application=print-db&dubbo=2.0.2&interface=com.alibaba.dubbo.registry.RegistryService&logger=slf4j&pid=7948&timestamp=1542627887854, cause: KeeperErrorCode = Unimplemented for /dubbo/ivg.cn.member.dao.MemberDao
+	at com.alibaba.dubbo.registry.support.FailbackRegistry.register(FailbackRegistry.java:150) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.integration.RegistryProtocol.register(RegistryProtocol.java:126) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.integration.RegistryProtocol.export(RegistryProtocol.java:146) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:98) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.rpc.protocol.ProtocolListenerWrapper.export(ProtocolListenerWrapper.java:55) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:60) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.doExportUrlsFor1Protocol(ServiceConfig.java:513) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.doExportUrls(ServiceConfig.java:358) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:317) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.ServiceConfig.export(ServiceConfig.java:216) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:123) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:49) ~[dubbo-2.6.4.jar:2.6.4]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:393) ~[spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:347) ~[spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:883) ~[spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) ~[spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at com.alibaba.dubbo.container.spring.SpringContainer.start(SpringContainer.java:50) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.container.Main.main(Main.java:86) ~[dubbo-2.6.4.jar:2.6.4]
+	at ivg.cn.member.db.MemberDBStartup.main(MemberDBStartup.java:13) [classes/:na]
+Caused by: com.alibaba.dubbo.rpc.RpcException: Failed to register dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=7948&side=provider&timestamp=1542627887857 to zookeeper zookeeper://192.168.5.131:16481/com.alibaba.dubbo.registry.RegistryService?application=print-db&dubbo=2.0.2&interface=com.alibaba.dubbo.registry.RegistryService&logger=slf4j&pid=7948&timestamp=1542627887854, cause: KeeperErrorCode = Unimplemented for /dubbo/ivg.cn.member.dao.MemberDao
+	at com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry.doRegister(ZookeeperRegistry.java:116) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.support.FailbackRegistry.register(FailbackRegistry.java:137) ~[dubbo-2.6.4.jar:2.6.4]
+	... 22 common frames omitted
+Caused by: java.lang.IllegalStateException: KeeperErrorCode = Unimplemented for /dubbo/ivg.cn.member.dao.MemberDao
+	at com.alibaba.dubbo.remoting.zookeeper.curator.CuratorZookeeperClient.createPersistent(CuratorZookeeperClient.java:79) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.remoting.zookeeper.support.AbstractZookeeperClient.create(AbstractZookeeperClient.java:67) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.remoting.zookeeper.support.AbstractZookeeperClient.create(AbstractZookeeperClient.java:62) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.remoting.zookeeper.support.AbstractZookeeperClient.create(AbstractZookeeperClient.java:62) ~[dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry.doRegister(ZookeeperRegistry.java:114) ~[dubbo-2.6.4.jar:2.6.4]
+	... 23 common frames omitted
+Caused by: org.apache.zookeeper.KeeperException$UnimplementedException: KeeperErrorCode = Unimplemented for /dubbo/ivg.cn.member.dao.MemberDao
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:103) ~[zookeeper-3.5.3-beta.jar:3.5.3-beta-8ce24f9e675cbefffb8f21a47e06b42864475a60]
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51) ~[zookeeper-3.5.3-beta.jar:3.5.3-beta-8ce24f9e675cbefffb8f21a47e06b42864475a60]
+	at org.apache.zookeeper.ZooKeeper.create(ZooKeeper.java:1525) ~[zookeeper-3.5.3-beta.jar:3.5.3-beta-8ce24f9e675cbefffb8f21a47e06b42864475a60]
+	at org.apache.curator.framework.imps.CreateBuilderImpl$17.call(CreateBuilderImpl.java:1181) ~[curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.framework.imps.CreateBuilderImpl$17.call(CreateBuilderImpl.java:1158) ~[curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.connection.StandardConnectionHandlingPolicy.callWithRetry(StandardConnectionHandlingPolicy.java:64) ~[curator-client-4.0.1.jar:na]
+	at org.apache.curator.RetryLoop.callWithRetry(RetryLoop.java:100) ~[curator-client-4.0.1.jar:na]
+	at org.apache.curator.framework.imps.CreateBuilderImpl.pathInForeground(CreateBuilderImpl.java:1155) ~[curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.framework.imps.CreateBuilderImpl.protectedPathInForeground(CreateBuilderImpl.java:605) ~[curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.framework.imps.CreateBuilderImpl.forPath(CreateBuilderImpl.java:595) ~[curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.framework.imps.CreateBuilderImpl.forPath(CreateBuilderImpl.java:573) ~[curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.framework.imps.CreateBuilderImpl.forPath(CreateBuilderImpl.java:49) ~[curator-framework-4.0.1.jar:4.0.1]
+	at com.alibaba.dubbo.remoting.zookeeper.curator.CuratorZookeeperClient.createPersistent(CuratorZookeeperClient.java:76) ~[dubbo-2.6.4.jar:2.6.4]
+	... 27 common frames omitted
+2018-11-19 19:44:48.732 [Thread-0] INFO  com.alibaba.dubbo.registry.support.AbstractRegistryFactory -  [DUBBO] Close all registries [zookeeper://192.168.5.131:16481/com.alibaba.dubbo.registry.RegistryService?application=print-db&dubbo=2.0.2&interface=com.alibaba.dubbo.registry.RegistryService&logger=slf4j&pid=7948&timestamp=1542627887854], dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:48.732 [Thread-0] INFO  com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry -  [DUBBO] Destroy registry:zookeeper://192.168.5.131:16481/com.alibaba.dubbo.registry.RegistryService?application=print-db&dubbo=2.0.2&interface=com.alibaba.dubbo.registry.RegistryService&logger=slf4j&pid=7948&timestamp=1542627887854, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:48.733 [Thread-0] INFO  com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry -  [DUBBO] Unregister: dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=7948&side=provider&timestamp=1542627887857, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:48.820 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: SUSPENDED
+2018-11-19 19:44:48.820 [Thread-0] DEBUG org.apache.curator.RetryLoop - Retry-able exception received
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss for /dubbo/ivg.cn.member.dao.MemberDao/providers/dubbo%3A%2F%2F192.168.56.1%3A20898%2Fivg.cn.member.dao.MemberDao%3Fanyhost%3Dtrue%26application%3Dprint-db%26default.server%3Dnetty4%26dubbo%3D2.0.2%26generic%3Dfalse%26interface%3Divg.cn.member.dao.MemberDao%26logger%3Dslf4j%26methods%3Dselect%2CupdateWithId%2CbatchInsert%2Cupdate%2Cinsert%2Cdelete%2CselectOne%2CselectPages%2CselectByRowBounds%26pid%3D7948%26side%3Dprovider%26timestamp%3D1542627887857
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99) ~[zookeeper-3.5.3-beta.jar:3.5.3-beta-8ce24f9e675cbefffb8f21a47e06b42864475a60]
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51) ~[zookeeper-3.5.3-beta.jar:3.5.3-beta-8ce24f9e675cbefffb8f21a47e06b42864475a60]
+	at org.apache.zookeeper.ZooKeeper.delete(ZooKeeper.java:1681) ~[zookeeper-3.5.3-beta.jar:3.5.3-beta-8ce24f9e675cbefffb8f21a47e06b42864475a60]
+	at org.apache.curator.framework.imps.DeleteBuilderImpl$5.call(DeleteBuilderImpl.java:274) ~[curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.framework.imps.DeleteBuilderImpl$5.call(DeleteBuilderImpl.java:268) ~[curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.connection.StandardConnectionHandlingPolicy.callWithRetry(StandardConnectionHandlingPolicy.java:64) ~[curator-client-4.0.1.jar:na]
+	at org.apache.curator.RetryLoop.callWithRetry(RetryLoop.java:100) [curator-client-4.0.1.jar:na]
+	at org.apache.curator.framework.imps.DeleteBuilderImpl.pathInForeground(DeleteBuilderImpl.java:265) [curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.framework.imps.DeleteBuilderImpl.forPath(DeleteBuilderImpl.java:249) [curator-framework-4.0.1.jar:4.0.1]
+	at org.apache.curator.framework.imps.DeleteBuilderImpl.forPath(DeleteBuilderImpl.java:34) [curator-framework-4.0.1.jar:4.0.1]
+	at com.alibaba.dubbo.remoting.zookeeper.curator.CuratorZookeeperClient.delete(CuratorZookeeperClient.java:96) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry.doUnregister(ZookeeperRegistry.java:123) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.support.FailbackRegistry.unregister(FailbackRegistry.java:167) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.support.AbstractRegistry.destroy(AbstractRegistry.java:458) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.support.FailbackRegistry.destroy(FailbackRegistry.java:443) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry.destroy(ZookeeperRegistry.java:103) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.registry.support.AbstractRegistryFactory.destroyAll(AbstractRegistryFactory.java:71) [dubbo-2.6.4.jar:2.6.4]
+	at com.alibaba.dubbo.config.DubboShutdownHook.destroyAll(DubboShutdownHook.java:69) [dubbo-2.6.4.jar:2.6.4]
+	at org.apache.dubbo.bootstrap.DubboBootstrap.stop(DubboBootstrap.java:87) [dubbo-2.6.4.jar:2.6.4]
+	at org.apache.dubbo.config.spring.initializer.DubboApplicationListener.onApplicationEvent(DubboApplicationListener.java:46) [dubbo-2.6.4.jar:2.6.4]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:393) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:347) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:991) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext$2.run(AbstractApplicationContext.java:929) [spring-context-4.3.16.RELEASE.jar:4.3.16.RELEASE]
+2018-11-19 19:44:49.820 [Thread-0] DEBUG org.apache.curator.RetryLoop - Retrying operation
+2018-11-19 19:44:50.183 [main-SendThread(192.168.5.131:16481)] INFO  org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.5.131/192.168.5.131:16481. Will not attempt to authenticate using SASL (unknown error)
+2018-11-19 19:44:50.186 [main-SendThread(192.168.5.131:16481)] INFO  org.apache.zookeeper.ClientCnxn - Socket connection established, initiating session, client: /192.168.5.60:62336, server: 192.168.5.131/192.168.5.131:16481
+2018-11-19 19:44:50.186 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Session establishment request sent on 192.168.5.131/192.168.5.131:16481
+2018-11-19 19:44:50.189 [main-SendThread(192.168.5.131:16481)] INFO  org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.5.131/192.168.5.131:16481, sessionid = 0x1014a87e0f10039, negotiated timeout = 40000
+2018-11-19 19:44:50.193 [main-EventThread] DEBUG org.apache.curator.ConnectionState - Negotiated session timeout: 40000
+2018-11-19 19:44:50.193 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: RECONNECTED
+2018-11-19 19:44:50.194 [main-EventThread] DEBUG org.apache.curator.framework.imps.CuratorFrameworkImpl - Clearing sleep for 0 operations
+2018-11-19 19:44:50.199 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x1014a87e0f10039, packet:: clientPath:null serverPath:null finished:false header:: 7,2  replyHeader:: 7,888,-101  request:: '/dubbo/ivg.cn.member.dao.MemberDao/providers/dubbo%253A%252F%252F192.168.56.1%253A20898%252Fivg.cn.member.dao.MemberDao%253Fanyhost%253Dtrue%2526application%253Dprint-db%2526default.server%253Dnetty4%2526dubbo%253D2.0.2%2526generic%253Dfalse%2526interface%253Divg.cn.member.dao.MemberDao%2526logger%253Dslf4j%2526methods%253Dselect%252CupdateWithId%252CbatchInsert%252Cupdate%252Cinsert%252Cdelete%252CselectOne%252CselectPages%252CselectByRowBounds%2526pid%253D7948%2526side%253Dprovider%2526timestamp%253D1542627887857,-1  response:: null
+2018-11-19 19:44:50.199 [Thread-0] INFO  com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry -  [DUBBO] Destroy unregister url dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=7948&side=provider&timestamp=1542627887857, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:50.200 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x1014a87e0f10039, packet:: clientPath:/zookeeper/config serverPath:/zookeeper/config finished:false header:: 8,4  replyHeader:: 8,888,-101  request:: '/zookeeper/config,T  response::  
+2018-11-19 19:44:50.200 [Thread-0] DEBUG org.apache.curator.framework.imps.CuratorFrameworkImpl - Closing
+2018-11-19 19:44:50.201 [Curator-Framework-0] INFO  org.apache.curator.framework.imps.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+2018-11-19 19:44:50.203 [Thread-0] DEBUG org.apache.curator.CuratorZookeeperClient - Closing
+2018-11-19 19:44:50.203 [Thread-0] DEBUG org.apache.curator.ConnectionState - Closing
+2018-11-19 19:44:50.204 [Thread-0] DEBUG org.apache.zookeeper.ZooKeeper - Closing session: 0x1014a87e0f10039
+2018-11-19 19:44:50.204 [Thread-0] DEBUG org.apache.zookeeper.ClientCnxn - Closing client for session: 0x1014a87e0f10039
+2018-11-19 19:44:50.215 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x1014a87e0f10039, packet:: clientPath:null serverPath:null finished:false header:: 9,-11  replyHeader:: 9,889,0  request:: null response:: null
+2018-11-19 19:44:50.215 [Thread-0] DEBUG org.apache.zookeeper.ClientCnxn - Disconnecting client for session: 0x1014a87e0f10039
+2018-11-19 19:44:50.216 [main-SendThread(192.168.5.131:16481)] DEBUG org.apache.zookeeper.ClientCnxn - An exception was thrown while closing send thread for session 0x1014a87e0f10039 : Unable to read additional data from server sessionid 0x1014a87e0f10039, likely server has closed socket
+2018-11-19 19:44:50.216 [Thread-0] INFO  org.apache.zookeeper.ZooKeeper - Session: 0x1014a87e0f10039 closed
+2018-11-19 19:44:50.216 [Thread-0] INFO  com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol -  [DUBBO] Close dubbo server: /192.168.56.1:20898, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:50.217 [main-EventThread] INFO  org.apache.zookeeper.ClientCnxn - EventThread shut down for session: 0x1014a87e0f10039
+2018-11-19 19:44:50.217 [Thread-0] INFO  com.alibaba.dubbo.remoting.transport.AbstractServer -  [DUBBO] Close NettyServer bind /0.0.0.0:20898, export /192.168.56.1:20898, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:50.223 [Thread-0] INFO  com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol -  [DUBBO] Unexport service: dubbo://192.168.56.1:20898/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&bind.ip=192.168.56.1&bind.port=20898&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=7948&side=provider&timestamp=1542627887857, dubbo version: 2.6.4, current host: 192.168.56.1
+2018-11-19 19:44:50.223 [Thread-0] INFO  com.alibaba.dubbo.rpc.protocol.injvm.InjvmProtocol -  [DUBBO] Unexport service: injvm://127.0.0.1/ivg.cn.member.dao.MemberDao?anyhost=true&application=print-db&bind.ip=192.168.56.1&bind.port=20898&default.server=netty4&dubbo=2.0.2&generic=false&interface=ivg.cn.member.dao.MemberDao&logger=slf4j&methods=select,updateWithId,batchInsert,update,insert,delete,selectOne,selectPages,selectByRowBounds&pid=7948&side=provider&timestamp=1542627887857, dubbo version: 2.6.4, current host: 192.168.56.1

@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" 
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.2.xsd 
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	
+	<!-- SplitTables -->
+
+	<bean name="zkItem" class="ivg.cn.dbsplit.core.SplitTable"
+		init-method="init">
+
+		<property name="dbNamePrefix" value="ZK_MONITOR" />
+		<property name="tableNamePrefix" value="ZK_ITEM" />
+		<property name="split" value="false" ></property>
+		
+ 		<property name="splitNodes">
+			<list>
+				<ref bean="splitNode1" />
+			</list>
+		</property>
+
+		<property name="readWriteSeparate" value="true" />
+
+	</bean>
+	
+</beans>

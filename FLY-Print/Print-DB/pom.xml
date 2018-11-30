@@ -40,6 +40,12 @@
 	</dependency>
     
     <dependency>
+	    <groupId>org.apache.curator</groupId>
+	    <artifactId>curator-recipes</artifactId>
+	    <version>2.12.0</version>
+	</dependency>
+    
+    <dependency>
 		<groupId>mysql</groupId>
 		<artifactId>mysql-connector-java</artifactId>
 		<version>5.1.36</version>
@@ -99,7 +105,7 @@
   
   <build>
   	<resources>
-  		<resource>
+  		<!-- <resource>
   			<targetPath>${project.build.directory}/classes</targetPath>
   			<directory>src/main/resources</directory>
   			<filtering>true</filtering>
@@ -108,7 +114,7 @@
   				<include>spring/*.xml</include>
   				<include>*.properties</include>
   			</includes>
-  		</resource>
+  		</resource> -->
   		<resource>
   			<targetPath>${project.build.directory}/classes/META-INF/spring</targetPath>
   			<directory>src/main/resources</directory>
@@ -131,6 +137,9 @@
                             <classpathPrefix>lib/</classpathPrefix>
                             <mainClass>com.alibaba.dubbo.container.Main</mainClass>
                         </manifest>
+                         <manifestEntries>
+			                <Class-Path>conf/</Class-Path>
+			            </manifestEntries>
                     </archive>
                 </configuration>
             </plugin>

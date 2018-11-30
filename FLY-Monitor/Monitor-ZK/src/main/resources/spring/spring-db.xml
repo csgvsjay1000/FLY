@@ -1,0 +1,46 @@
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" 
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.2.xsd 
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	
+
+	
+	<!-- SplitBizTemplate Entry -->
+
+	<bean name="simpleSplitJdbcTemplate" class="ivg.cn.dbsplit.core.SimpleSplitJdbcTemplate">
+		<property name="splitTablesHolder" ref="splitTablesHolder" />
+		
+	</bean>
+
+	<!-- SplitTablesHolder -->
+
+	<bean name="splitTablesHolder" class="ivg.cn.dbsplit.core.SplitTablesHolder"
+		init-method="init">
+		<property name="splitTables">
+			<list>
+				<ref bean="zkItem" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<!-- 关联数据源 -->
+		<property name="dataSource" ref="masterDatasource0"></property>
+	</bean>
+	
+	<!-- 注解事务 -->
+	<tx:annotation-driven/>
+<!-- 	<tx:annotation-driven transaction-manager="transactionManager" /> -->
+
+
+	<import resource="classpath:spring/dbsplit-datasources.xml" />
+	<import resource="classpath:spring/dbsplit-nodes.xml" />
+	<import resource="classpath:spring/dbsplit-tables.xml" />
+	
+</beans>

@@ -30,5 +30,13 @@
 		<property name="zkHost" value="39.108.11.154:2181"></property>
 		<property name="lockName" value="printLock"></property>
 	</bean>
+	<bean id="redic" class="ivg.cn.redic.Redic" init-method="init">
+		
+		<property name="nodeConnStrs">
+			<list>
+				<value>192.168.5.131:18972</value>
+			</list>
+		</property>
+	</bean>
 	
 </beans>
