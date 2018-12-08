@@ -8,8 +8,6 @@
 	http://www.springframework.org/schema/tx/spring-tx-3.2.xsd 
 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 	
-
-	
 	<!-- SplitBizTemplate Entry -->
 
 	<bean name="simpleSplitJdbcTemplate" class="ivg.cn.dbsplit.core.SimpleSplitJdbcTemplate">
@@ -23,8 +21,8 @@
 		init-method="init">
 		<property name="splitTables">
 			<list>
-				<ref bean="zkItem" />
-				<ref bean="ZkInstMonitor" />
+				<ref bean="redisItem" />
+				<ref bean="redisInstMonitor" />
 				
 			</list>
 		</property>

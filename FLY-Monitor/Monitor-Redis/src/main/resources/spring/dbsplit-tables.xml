@@ -10,10 +10,10 @@
 	
 	<!-- SplitTables -->
 
-	<bean name="zkItem" class="ivg.cn.dbsplit.core.SplitTable"
+	<bean name="redisItem" class="ivg.cn.dbsplit.core.SplitTable"
 		init-method="init">
-		<property name="dbNamePrefix" value="ZK_MONITOR" />
-		<property name="tableNamePrefix" value="ZK_ITEM" />
+		<property name="dbNamePrefix" value="REDIS_MONITOR" />
+		<property name="tableNamePrefix" value="REDIS_ITEM" />
 		<property name="split" value="false" ></property>
  		<property name="splitNodes">
 			<list>
@@ -23,11 +23,11 @@
 		<property name="readWriteSeparate" value="true" />
 	</bean>
 	
-	<bean name="ZkInstMonitor" class="ivg.cn.dbsplit.core.SplitTable"
+	<bean name="redisInstMonitor" class="ivg.cn.dbsplit.core.SplitTable"
 		init-method="init">
 
-		<property name="dbNamePrefix" value="ZK_MONITOR" />
-		<property name="tableNamePrefix" value="ZK_INST_MONITOR" />
+		<property name="dbNamePrefix" value="REDIS_MONITOR" />
+		<property name="tableNamePrefix" value="REDIS_INST_MONITOR" />
 		<property name="split" value="false" ></property>
 		
  		<property name="splitNodes">
