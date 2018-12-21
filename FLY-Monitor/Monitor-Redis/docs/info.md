@@ -8,3 +8,6 @@ redis内存消耗划分
 + 内存碎片(使用jemalloc内存分片管理，能够有效的减少碎片，一般为1.03左右)
 
 
+监控master集群和sentinel节点方案
+
++ 1、遍历sentinel-master数据，转成

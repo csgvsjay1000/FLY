@@ -15,11 +15,11 @@
 		<javaModelGenerator targetPackage="ivg.cn.monitor.redis.entity"
 			targetProject="Monitor-Redis/src/main/java" />
 
-		<table tableName="redis_item" domainObjectName="RedisItem"
+		<table tableName="master_item" domainObjectName="MasterItem"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false"></table>
-		<table tableName="redis_inst_monitor" domainObjectName="RedisInstMonitor"
+		<table tableName="master_item_monitor" domainObjectName="MasterItemMonitor"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false"></table>

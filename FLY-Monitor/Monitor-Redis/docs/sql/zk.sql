@@ -1,65 +1,78 @@
 
--- datebase name redis_monitor  
+DROP TABLE IF EXISTS `master_item`;
+CREATE TABLE `master_item` (
+`id`  bigint(20) UNSIGNED NOT NULL ,
+`master_name`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '节点名称',
+`master_redis_ip`  char(15) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'IP' ,
+`master_redis_port`  int(10) UNSIGNED NULL DEFAULT NULL COMMENT '端口号' ,
+`total_slaves`  int(10) UNSIGNED NULL DEFAULT NULL COMMENT '计划从服务器总节点数' ,
+`current_slaves`  int(10) UNSIGNED NULL DEFAULT NULL COMMENT '当前可用服务器节点数' ,
+`total_sentinels`  int(10) UNSIGNED NULL DEFAULT NULL COMMENT '计划总sentinel节点数' ,
+`current_sentinels`  int(10) UNSIGNED NULL DEFAULT NULL COMMENT '当前可用节点数' ,
+`quorum`  int(10) UNSIGNED NULL DEFAULT NULL COMMENT '判断节点下线确定数' ,
+`down_after_milliseconds`  int(10) UNSIGNED NULL DEFAULT NULL COMMENT '判断节点下线阀值' ,
+`failover_timeout`  int(10) UNSIGNED NULL DEFAULT NULL COMMENT '故障转移超时时间' ,
+`parallel_syncs`  int(10) UNSIGNED NULL DEFAULT NULL COMMENT '故障转移时并发复制数量' ,
+`enable`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '当前集群是否可以, OK, NOT_OK',
+`status`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '当前集群状态,是否停用,Normal ',
+`remark`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+`attr01`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+`attr02`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+`attr03`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+`create_date`  datetime NOT NULL ,
+PRIMARY KEY (`id`)
+)
+ENGINE=InnoDB
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
 
-CREATE TABLE `redis_cluster` (
-  `id`  bigint(20) unsigned NOT NULL,
-  `name` varchar(64) COMMENT '集群名称',
-  `status` smallint unsigned DEFAULT '0' COMMENT ' 0-已上线,1-已下线, 2-已停用, 3-已废弃',
-  `status_update` datetime NOT NULL COMMENT '对应状态操作时间',
-  `node_count` int unsigned DEFAULT '0' COMMENT '节点总数',
-  `enable_node_count` int unsigned DEFAULT '0' COMMENT '可用节点总数',
-  `cluster_uptime` datetime NOT NULL COMMENT '集群上线时间',
-  `remark` varchar(255) DEFAULT NULL,
-  `attr01` varchar(255) DEFAULT NULL,
-  `attr02` varchar(255) DEFAULT NULL,
-  `attr03` varchar(255) DEFAULT NULL,
-  `create_date` datetime NOT NULL,
-  `update_date` datetime NOT NULL,
-  `creater` bigint(20) NOT NULL,
-  `updater` bigint(20) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `redis_item` (
-  `id` int unsigned NOT NULL,
-  `cluster_id` bigint(20) unsigned NOT NULL COMMENT '引用zk_cluster.id',
-  `redis_ip` char(15) COMMENT 'redisIP',
-  `redis_port` int unsigned COMMENT '端口号',
-  `status`  smallint unsigned DEFAULT '0' COMMENT ' 0-已上线,1-已下线, 2-已停用, 3-已废弃',
-  `status_update` datetime NOT NULL COMMENT '对应状态操作时间',
-  `remark` varchar(255) DEFAULT NULL,
-  `attr01` varchar(255) DEFAULT NULL,
-  `attr02` varchar(255) DEFAULT NULL,
-  `attr03` varchar(255) DEFAULT NULL,
-  `create_date` datetime NOT NULL,
-  `update_date` datetime NOT NULL,
-  `creater` bigint(20) NOT NULL,
-  `updater` bigint(20) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `redis_inst_monitor` (
-  `id` bigint(20) unsigned NOT NULL,
-  `item_id` int unsigned NOT NULL COMMENT '引用zk_item.id',
-  `master_item_id` int unsigned DEFAULT NULL COMMENT '主实例ID 引用zk_item.id',
-  `redis_ip` char(15) COMMENT 'redisIP',
-  `redis_port` int unsigned COMMENT '端口号',
-  `role` varchar(255) COMMENT 'master Or slave',
-  `mode` varchar(255) COMMENT 'follower Or leader',
-  `connections` int unsigned DEFAULT '0' COMMENT '客户端连接数',
-  `used_memory` bigint(20) unsigned DEFAULT '0' COMMENT '已使用内存,单位byte',
-  `max_memory` bigint(20) unsigned DEFAULT '0' COMMENT '总内存,单位byte',
-  `obj_count` bigint(20) unsigned DEFAULT '0' COMMENT '对象数，即键值对数',
-  `keyspace_hits` int unsigned DEFAULT '0' COMMENT '命中次数',
-  `keyspace_misses` int unsigned DEFAULT '0' COMMENT '未命中次数',
-  `mem_fragmentation_ratio`  DECIMAL(4,2) COMMENT '内存碎片率',
-  `qps`  DECIMAL(6,2) COMMENT '每秒请求数',
-  `remark` varchar(255) DEFAULT NULL,
-  `attr01` varchar(255) DEFAULT NULL,
-  `attr02` varchar(255) DEFAULT NULL,
-  `attr03` varchar(255) DEFAULT NULL,
-  `create_date` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+;
 
 
+DROP TABLE IF EXISTS `master_item_monitor`;
+CREATE TABLE `master_item_monitor` (
+`id`  bigint(20) UNSIGNED NOT NULL ,
+`master_name`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '节点名称',
+`master_redis_ip`  char(15) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'IP' ,
+`master_redis_port`  int(10) UNSIGNED NULL DEFAULT NULL COMMENT '端口号' ,
+`total_slaves`  int(10) UNSIGNED NULL DEFAULT NULL COMMENT '计划从服务器总节点数' ,
+`current_slaves`  int(10) UNSIGNED NULL DEFAULT NULL COMMENT '当前可用服务器节点数' ,
+`total_sentinels`  int(10) UNSIGNED NULL DEFAULT NULL COMMENT '计划总sentinel节点数' ,
+`current_sentinels`  int(10) UNSIGNED NULL DEFAULT NULL COMMENT '当前可用节点数' ,
+`quorum`  int(10) UNSIGNED NULL DEFAULT NULL COMMENT '判断节点下线确定数' ,
+`down_after_milliseconds`  int(10) UNSIGNED NULL DEFAULT NULL COMMENT '判断节点下线阀值' ,
+`failover_timeout`  int(10) UNSIGNED NULL DEFAULT NULL COMMENT '故障转移超时时间' ,
+`parallel_syncs`  int(10) UNSIGNED NULL DEFAULT NULL COMMENT '故障转移时并发复制数量' ,
+`enable`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '当前集群是否可以, OK, NOT_OK',
+`status`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '当前集群状态,是否停用,Normal ',
+`remark`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+`attr01`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+`attr02`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+`attr03`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+`create_date`  datetime NOT NULL ,
+PRIMARY KEY (`id`)
+)
+ENGINE=InnoDB
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+
+;
+
+DROP TABLE IF EXISTS `sentinel_redis_log`;
+CREATE TABLE `sentinel_redis_log` (
+`id`  bigint(20) UNSIGNED NOT NULL ,
+`sentinel_ip`  char(15) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'IP' ,
+`sentinel_port`  int(10) UNSIGNED NULL DEFAULT NULL COMMENT '端口号' ,
+`channel`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '频道',
+`ch_log`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '中文日志',
+`en_log`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '英文日志',
+`content`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '消息内容',
+`remark`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+`attr01`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+`attr02`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+`attr03`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+`create_date`  datetime NOT NULL ,
+PRIMARY KEY (`id`)
+)
+ENGINE=InnoDB
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+
+;

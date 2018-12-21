@@ -25,19 +25,75 @@
 	
 	<bean name="redisInstMonitor" class="ivg.cn.dbsplit.core.SplitTable"
 		init-method="init">
-
 		<property name="dbNamePrefix" value="REDIS_MONITOR" />
 		<property name="tableNamePrefix" value="REDIS_INST_MONITOR" />
 		<property name="split" value="false" ></property>
-		
  		<property name="splitNodes">
 			<list>
 				<ref bean="splitNode1" />
 			</list>
 		</property>
-
 		<property name="readWriteSeparate" value="true" />
-
+	</bean>
+	<bean name="redisSlowLog" class="ivg.cn.dbsplit.core.SplitTable"
+		init-method="init">
+		<property name="dbNamePrefix" value="REDIS_MONITOR" />
+		<property name="tableNamePrefix" value="REDIS_SLOW_LOG" />
+		<property name="split" value="false" ></property>
+ 		<property name="splitNodes">
+			<list>
+				<ref bean="splitNode1" />
+			</list>
+		</property>
+		<property name="readWriteSeparate" value="true" />
+	</bean>
+	<bean name="sentinelItem" class="ivg.cn.dbsplit.core.SplitTable"
+		init-method="init">
+		<property name="dbNamePrefix" value="REDIS_MONITOR" />
+		<property name="tableNamePrefix" value="SENTINEL_ITEM" />
+		<property name="split" value="false" ></property>
+ 		<property name="splitNodes">
+			<list>
+				<ref bean="splitNode1" />
+			</list>
+		</property>
+		<property name="readWriteSeparate" value="true" />
+	</bean>
+	<bean name="sentinelItemMonitor" class="ivg.cn.dbsplit.core.SplitTable"
+		init-method="init">
+		<property name="dbNamePrefix" value="REDIS_MONITOR" />
+		<property name="tableNamePrefix" value="SENTINEL_ITEM_MONITOR" />
+		<property name="split" value="false" ></property>
+ 		<property name="splitNodes">
+			<list>
+				<ref bean="splitNode1" />
+			</list>
+		</property>
+		<property name="readWriteSeparate" value="true" />
+	</bean>
+	<bean name="masterItem" class="ivg.cn.dbsplit.core.SplitTable"
+		init-method="init">
+		<property name="dbNamePrefix" value="REDIS_MONITOR" />
+		<property name="tableNamePrefix" value="MASTER_ITEM" />
+		<property name="split" value="false" ></property>
+ 		<property name="splitNodes">
+			<list>
+				<ref bean="splitNode1" />
+			</list>
+		</property>
+		<property name="readWriteSeparate" value="true" />
+	</bean>
+	<bean name="masterItemMonitor" class="ivg.cn.dbsplit.core.SplitTable"
+		init-method="init">
+		<property name="dbNamePrefix" value="REDIS_MONITOR" />
+		<property name="tableNamePrefix" value="MASTER_ITEM_MONITOR" />
+		<property name="split" value="false" ></property>
+ 		<property name="splitNodes">
+			<list>
+				<ref bean="splitNode1" />
+			</list>
+		</property>
+		<property name="readWriteSeparate" value="true" />
 	</bean>
 	
 </beans>

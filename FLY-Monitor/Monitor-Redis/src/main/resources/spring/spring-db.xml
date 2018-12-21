@@ -23,6 +23,11 @@
 			<list>
 				<ref bean="redisItem" />
 				<ref bean="redisInstMonitor" />
+				<ref bean="redisSlowLog" />
+				<ref bean="sentinelItem" />
+				<ref bean="sentinelItemMonitor" />
+				<ref bean="masterItem" />
+				<ref bean="masterItemMonitor" />
 				
 			</list>
 		</property>
