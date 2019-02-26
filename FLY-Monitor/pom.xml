@@ -26,5 +26,7 @@
   	<module>Monitor-ZK</module>
     <module>Monitor-Redis</module>
     <module>Monitor-Kafka</module>
+    <module>Monitor-Demo</module>
+    <module>Monitor-Kafka1</module>
   </modules>
 </project>
