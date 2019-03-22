@@ -28,5 +28,7 @@
     <module>Monitor-Kafka</module>
     <module>Monitor-Demo</module>
     <module>Monitor-Kafka1</module>
+    <module>Monitor-Kafka2</module>
+    <module>Monitor-Kafka3</module>
   </modules>
 </project>

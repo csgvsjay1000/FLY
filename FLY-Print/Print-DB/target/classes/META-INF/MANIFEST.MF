@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Built-By: Administrator
+Class-Path: lib/Print-API-1.0.0.jar lib/FLY-Common-1.0.0.jar lib/netty
+ -all-4.1.30.Final.jar lib/dubbo-2.6.4.jar lib/spring-context-4.3.16.R
+ ELEASE.jar lib/spring-aop-4.3.16.RELEASE.jar lib/spring-expression-4.
+ 3.16.RELEASE.jar lib/javassist-3.20.0-GA.jar lib/curator-recipes-2.12
+ .0.jar lib/curator-framework-2.12.0.jar lib/curator-client-2.12.0.jar
+  lib/guava-16.0.1.jar lib/mysql-connector-java-5.1.36.jar lib/druid-1
+ .1.5.jar lib/spring-jdbc-4.3.16.RELEASE.jar lib/spring-beans-4.3.16.R
+ ELEASE.jar lib/spring-core-4.3.16.RELEASE.jar lib/commons-logging-1.2
+ .jar lib/spring-tx-4.3.16.RELEASE.jar lib/slf4j-api-1.7.12.jar lib/lo
+ gback-classic-1.0.13.jar lib/logback-core-1.0.13.jar lib/dbsplit-1.0.
+ 0.jar lib/fastjson-1.2.6.jar lib/commons-collections-3.2.1.jar lib/ve
+ sta-id-1.0.0.jar lib/ivg-tools-1.0.0.jar lib/zookeeper-3.4.9.jar lib/
+ jline-0.9.94.jar lib/netty-3.10.5.Final.jar lib/asm-7.0.jar lib/asm-c
+ ommons-7.0.jar lib/asm-tree-7.0.jar lib/asm-analysis-7.0.jar lib/redi
+ c-1.0.0.jar lib/jedis-2.7.2.jar lib/commons-pool2-2.3.jar conf/
+Build-Jdk: 1.8.0_101
+Created-By: Maven Integration for Eclipse
+Main-Class: com.alibaba.dubbo.container.Main
+

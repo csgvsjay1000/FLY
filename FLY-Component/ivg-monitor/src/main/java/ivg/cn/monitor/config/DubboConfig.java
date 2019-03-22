@@ -8,7 +8,7 @@ import com.alibaba.dubbo.config.ProtocolConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 import com.alibaba.dubbo.registry.RegistryService;
 
-@Configuration
+//@Configuration
 public class DubboConfig {
 	@Bean
     public ApplicationConfig applicationConfig() {

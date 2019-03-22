@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: replenish-controller
+  messages: 
+    basename: i18n/messages,i18n/business
+server: 
+  port: 20201  # web端测试
+

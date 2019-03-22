@@ -18,7 +18,7 @@ import ivg.cn.monitor.vo.ConsumerGroup;
 @Service
 public class KafkaServiceImpl implements KafkaService{
 
-	@Autowired
+//	@Autowired
 	private KClientAdmin clientAdmin;
 	
 	public DreamResponse<String> listTopics() {

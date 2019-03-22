@@ -30,5 +30,6 @@
     <module>ivg-monitor</module>
     <module>ivg-tools</module>
     <module>redic</module>
+    <module>greys-anatomy</module>
   </modules>
 </project>

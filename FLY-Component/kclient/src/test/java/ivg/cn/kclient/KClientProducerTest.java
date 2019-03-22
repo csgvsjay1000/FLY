@@ -40,13 +40,13 @@ public class KClientProducerTest {
 	public void testConsumer() {
 		Properties props = new Properties();
 	     props.put("bootstrap.servers", "192.168.5.131:10200");
-	     props.put("group.id", "test");
+	     props.put("group.id", "rwetwetwe");
 	     props.put("enable.auto.commit", "true");
 	     props.put("auto.commit.interval.ms", "1000");
 	     props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 	     props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 	     KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
-	     consumer.subscribe(Arrays.asList("test-topic", "bar","printEpcTopic"));
+	     consumer.subscribe(Arrays.asList("delivery_topic"));
 	     while (true) {
 	    	 
 	         ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(1));

@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Built-By: Administrator
+Class-Path: lib/spring-boot-starter-1.4.7.RELEASE.jar lib/spring-boot-
+ 1.4.7.RELEASE.jar lib/spring-context-4.3.9.RELEASE.jar lib/spring-aop
+ -4.3.9.RELEASE.jar lib/spring-expression-4.3.9.RELEASE.jar lib/spring
+ -boot-autoconfigure-1.4.7.RELEASE.jar lib/spring-boot-starter-logging
+ -1.4.7.RELEASE.jar lib/logback-classic-1.1.11.jar lib/logback-core-1.
+ 1.11.jar lib/slf4j-api-1.7.25.jar lib/jcl-over-slf4j-1.7.25.jar lib/j
+ ul-to-slf4j-1.7.25.jar lib/log4j-over-slf4j-1.7.25.jar lib/spring-cor
+ e-4.3.9.RELEASE.jar lib/snakeyaml-1.17.jar lib/dubbo-spring-boot-star
+ ter-2.0.0.jar lib/dubbo-2.6.0.jar lib/spring-beans-4.3.9.RELEASE.jar 
+ lib/spring-web-4.3.9.RELEASE.jar lib/javassist-3.20.0-GA.jar lib/nett
+ y-3.2.5.Final.jar lib/spring-boot-starter-actuator-1.4.7.RELEASE.jar 
+ lib/spring-boot-actuator-1.4.7.RELEASE.jar lib/jackson-databind-2.8.8
+ .jar lib/jackson-annotations-2.8.8.jar lib/jackson-core-2.8.8.jar con
+ f/
+Build-Jdk: 1.8.0_101
+Created-By: Maven Integration for Eclipse
+Main-Class: ivg.cn.member.service.App
+

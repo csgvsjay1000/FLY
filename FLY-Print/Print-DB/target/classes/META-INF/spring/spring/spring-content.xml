@@ -1,0 +1,44 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd" default-autowire="byName" default-lazy-init="false">
+	
+	
+	<!-- 采用注释的方式配置bean -->
+	<context:annotation-config />
+	<!-- 配置要扫描的包 -->
+	<context:component-scan base-package="ivg.cn.print" />
+	<!-- 引入配置文件 -->
+	<bean id="propertyConfigurer"
+		  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:boss-jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<import resource="classpath:spring/spring-db.xml" />
+	<import resource="classpath:spring/boss-db-provider.xml" />
+	
+	<bean id="idService" class="ivg.cn.vesta.impl.IdServiceImpl" >
+		<property name="machineId" value="49"></property>
+	</bean>
+	<bean id="disLock" class="ivg.cn.tools.dislock.ZkDisLock" init-method="init">
+		<property name="zkHost" value="192.168.5.131:16481"></property>
+		<property name="lockName" value="printLock"></property>
+	</bean>
+	<bean id="redic" class="ivg.cn.redic.Redic" init-method="init">
+		
+		<property name="nodeConnStrs">
+			<list>
+				<value>192.168.5.131:18972</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+</beans>

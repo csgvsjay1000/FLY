@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 import ivg.cn.kclient.KClientAdmin;
 
-@Configuration
+//@Configuration
 public class KClientConfig {
 
 	@Bean
